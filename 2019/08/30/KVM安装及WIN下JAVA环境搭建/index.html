@@ -54,19 +54,19 @@
 <meta name="keywords" content="KVM,Java,CentOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KVM安装及WIN下Java环境搭建">
-<meta property="og:url" content="https:&#x2F;&#x2F;quanweilong.top&#x2F;2019&#x2F;08&#x2F;30&#x2F;KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;quanweilong.top&#x2F;2019&#x2F;08&#x2F;30&#x2F;KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;index.html">
 <meta property="og:site_name" content="NastyAirBlog">
 <meta property="og:description" content="准备环境宿主机环境准备系统安装——CentOS7安装虚拟机安装使用镜像CentOS-7-x86_64-Minimal-1810.iso特别注意：请务必开启CPU虚拟化实体机安装特别注意：请务必在bios中开启CPU虚拟化KVM及其相关依赖安装配置网络装好CentOS7后，默认网卡是未启动的，需要修改网卡配置执行如下命令获取">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;quanweilong.top&#x2F;2019&#x2F;08&#x2F;30&#x2F;KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;20190830150623454.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;quanweilong.top&#x2F;2019&#x2F;08&#x2F;30&#x2F;KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;20190830150635551.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;quanweilong.top&#x2F;2019&#x2F;08&#x2F;30&#x2F;KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;20190830150642362.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;quanweilong.top&#x2F;2019&#x2F;08&#x2F;30&#x2F;KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;20190830150656390.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;quanweilong.top&#x2F;2019&#x2F;08&#x2F;30&#x2F;KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;20190830150623454.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;quanweilong.top&#x2F;2019&#x2F;08&#x2F;30&#x2F;KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;20190830150635551.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;quanweilong.top&#x2F;2019&#x2F;08&#x2F;30&#x2F;KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;20190830150642362.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;quanweilong.top&#x2F;2019&#x2F;08&#x2F;30&#x2F;KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;20190830150656390.png">
 <meta property="og:updated_time" content="2019-08-30T07:31:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;quanweilong.top&#x2F;2019&#x2F;08&#x2F;30&#x2F;KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;20190830150623454.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;quanweilong.top&#x2F;2019&#x2F;08&#x2F;30&#x2F;KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA&#x2F;20190830150623454.png">
 
-<link rel="canonical" href="https://quanweilong.top/2019/08/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+<link rel="canonical" href="http://quanweilong.top/2019/08/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
 
 
 <script id="page-configurations">
@@ -195,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://quanweilong.top/2019/08/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+    <link itemprop="mainEntityOfPage" href="http://quanweilong.top/2019/08/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/sunrise.png">
