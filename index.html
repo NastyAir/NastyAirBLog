@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="NastyAirBlog">
+<meta property="og:url" content="https://nastyair.github.io/NastyAirBLog/index.html">
+<meta property="og:site_name" content="NastyAirBlog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="NastyAir">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://nastyair.github.io/NastyAirBLog/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>NastyAirBlog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9404ae6db783e2d3cb19adae6d4f4c93";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NastyAirBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">凡是过往，皆为序章</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-index"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nastyair.github.io/NastyAirBLog/2019/12/12/%E6%91%84%E5%83%8F%E5%A4%B4RTSP%E8%A7%86%E9%A2%91%E6%B5%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%92%AD%E6%94%BE%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/sunrise.png">
+      <meta itemprop="name" content="NastyAir">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NastyAirBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/12/%E6%91%84%E5%83%8F%E5%A4%B4RTSP%E8%A7%86%E9%A2%91%E6%B5%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%92%AD%E6%94%BE%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">摄像头RTSP视频流在浏览器播放方案</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-12 09:50:01" itemprop="dateCreated datePublished" datetime="2019-12-12T09:50:01+08:00">2019-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-10-27 23:17:20" itemprop="dateModified" datetime="2024-10-27T23:17:20+08:00">2024-10-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%9B%B4%E6%92%AD/" itemprop="url" rel="index">
+                    <span itemprop="name">直播</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <html><head></head><body></body></html><html><head></head><body><p>由于项目需要在浏览器实时播放RTSP流，对接口视频接入积累了部分经验，在此略作总结。</p>
+<h1 id="相关协议"><a href="#相关协议" class="headerlink" title="相关协议"></a>相关协议</h1><h2 id="RTSP"><a href="#RTSP" class="headerlink" title="RTSP"></a>RTSP</h2><p>RTSP（Real Time Streaming Protocol）实时流传输协议。</p>
+<blockquote>
+<p>RTSP作为一个应用层协议，RTSP提供了一个可供扩展的框架，它的意义在于使得实时流媒体数据的受控和点播变得可能。总的说来，RTSP是一个流媒体表示 协议，主要用来控制具有实时特性的数据发送，但它本身并不传输数据，而是必须依赖于下层传输协议所提供的某些服务。RTSP可以对流媒体提供诸如播放、暂 停、快进等操作，它负责定义具体的控制消息、操作方法、状态码等，此外还描述了与RTP间的交互操作（RFC2326）。</p>
+</blockquote>
+<h2 id="RTMP"><a href="#RTMP" class="headerlink" title="RTMP"></a>RTMP</h2><p>RTMP（Real Time Messaging Protocol）实时网络消息协议。它是由Adobe公司提出的一种应用层的协议，用来解决多媒体数据传输流的多路复用（Multiplexing）和分包（packetizing）的问题。</p>
+<blockquote>
+<p>RTMP协议是应用层协议，是要靠底层可靠的传输层协议（通常是TCP）来保证信息传输的可靠性的。在基于传输层协议的链接建立完成后，RTMP协议也要客户端和服务器通过“握手”来建立基于传输层链接之上的RTMP Connection链接，在Connection链接上会传输一些控制信息，如SetChunkSize,etACKWindowSize。其中CreateStream命令会创建一个Stream链接，用于传输具体的音视频数据和控制这些信息传输的命令信息。RTMP协议传输时会对数据做自己的格式化，这种格式的消息我们称之为RTMP Message，而实际传输的时候为了更好地实现多路复用、分包和信息的公平性，发送端会把Message划分为带有Message ID的Chunk，每个Chunk可能是一个单独的Message，也可能是Message的一部分，在接受端会根据chunk中包含的data的长度，message id和message的长度把chunk还原成完整的Message，从而实现信息的收发。</p>
+</blockquote>
+<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p>HTTP（HyperText Transfer Protocol）超文本传输协议。</p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><table>
+<thead>
+<tr>
+<th>协议</th>
+<th>类型</th>
+<th>标准</th>
+<th>流格式</th>
+<th>通道</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RTSP</td>
+<td>流媒体协议</td>
+<td>共有协议</td>
+<td>ts,mp4</td>
+<td>2-3个通道，命令和数据通道分离</td>
+</tr>
+<tr>
+<td>RTMP</td>
+<td>流媒体协议</td>
+<td>Adobe的私有协议</td>
+<td>flv,f4v</td>
+<td>1个TCP通道上传输命令和数据</td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td>非流媒体协议</td>
+<td>共有协议</td>
+<td>无特定流</td>
+<td>1个TCP通道上传输命令和数据</td>
+</tr>
+</tbody></table>
+<h1 id="可选方案"><a href="#可选方案" class="headerlink" title="可选方案"></a>可选方案</h1><h2 id="RTSP-1"><a href="#RTSP-1" class="headerlink" title="RTSP"></a>RTSP</h2><h3 id="需要安装VLC-插件或者ActiveX-插件。"><a href="#需要安装VLC-插件或者ActiveX-插件。" class="headerlink" title="需要安装VLC 插件或者ActiveX 插件。"></a>需要安装VLC 插件或者ActiveX 插件。</h3><h2 id="RTSP-VLC-ActiveX浏览器不支持，需要加载VLC-插件或者ActiveX-插件-优势：无需转码，直接支持RTSP，集成度好，成本低，技术成熟，延迟低。-缺点：高版本谷歌浏览器及火狐浏览器不支持-应用：适合需要兼容IE的场景"><a href="#RTSP-VLC-ActiveX浏览器不支持，需要加载VLC-插件或者ActiveX-插件-优势：无需转码，直接支持RTSP，集成度好，成本低，技术成熟，延迟低。-缺点：高版本谷歌浏览器及火狐浏览器不支持-应用：适合需要兼容IE的场景" class="headerlink" title="RTSP => VLC/ActiveX浏览器不支持，需要加载VLC 插件或者ActiveX 插件* 优势：无需转码，直接支持RTSP，集成度好，成本低，技术成熟，延迟低。* 缺点：高版本谷歌浏览器及火狐浏览器不支持* 应用：适合需要兼容IE的场景"></a>RTSP =&gt; VLC/ActiveX<br>浏览器不支持，需要加载VLC 插件或者ActiveX 插件<br>* 优势：无需转码，直接支持RTSP，集成度好，成本低，技术成熟，延迟低。<br>* 缺点：高版本谷歌浏览器及火狐浏览器不支持<br>* 应用：适合需要兼容IE的场景</h2><h2 id="RTMP-1"><a href="#RTMP-1" class="headerlink" title="RTMP"></a>RTMP</h2><h3 id="需要安装Flash插件"><a href="#需要安装Flash插件" class="headerlink" title="需要安装Flash插件"></a>需要安装Flash插件</h3><h2 id="浏览器不支持，需要加载Flash插件RTSP-RTMP-Flash-优势：技术成熟，延迟低。-缺点：成本高（需转码），Flash有一定安全问题。由于Flash将停止更新，日渐式微。-应用：对安全性要求不高场景"><a href="#浏览器不支持，需要加载Flash插件RTSP-RTMP-Flash-优势：技术成熟，延迟低。-缺点：成本高（需转码），Flash有一定安全问题。由于Flash将停止更新，日渐式微。-应用：对安全性要求不高场景" class="headerlink" title="浏览器不支持，需要加载Flash插件RTSP => RTMP => Flash* 优势：技术成熟，延迟低。* 缺点：成本高（需转码），Flash有一定安全问题。由于Flash将停止更新，日渐式微。* 应用：对安全性要求不高场景"></a>浏览器不支持，需要加载Flash插件<br>RTSP =&gt; RTMP =&gt; Flash<br>* 优势：技术成熟，延迟低。<br>* 缺点：成本高（需转码），Flash有一定安全问题。由于Flash将停止更新，日渐式微。<br>* 应用：对安全性要求不高场景</h2><h2 id="HTTP-1"><a href="#HTTP-1" class="headerlink" title="HTTP"></a>HTTP</h2><h3 id="HTTP-FLV"><a href="#HTTP-FLV" class="headerlink" title="HTTP-FLV"></a>HTTP-FLV</h3><h2 id="浏览器不支持，但可通过js进行解析，不需要加载插件RTSP-RTMP-HTTP-FLV-flv-js-HTML5-Video标签-优势：原生Video标签采用了硬件加速，性能很好，延迟低，支持高清。-缺点：视频编码必须是H-264，音频编码必须是AAC或MP3；依赖原生HTML5-Video-标签和-Media-Source-Extensions-API。-应用：不需要兼容IE及移动端的场景"><a href="#浏览器不支持，但可通过js进行解析，不需要加载插件RTSP-RTMP-HTTP-FLV-flv-js-HTML5-Video标签-优势：原生Video标签采用了硬件加速，性能很好，延迟低，支持高清。-缺点：视频编码必须是H-264，音频编码必须是AAC或MP3；依赖原生HTML5-Video-标签和-Media-Source-Extensions-API。-应用：不需要兼容IE及移动端的场景" class="headerlink" title="浏览器不支持，但可通过js进行解析，不需要加载插件RTSP => RTMP => HTTP-FLV => flv.js => HTML5-Video标签* 优势：原生Video标签采用了硬件加速，性能很好，延迟低，支持高清。* 缺点：视频编码必须是H.264，音频编码必须是AAC或MP3；依赖原生HTML5 Video 标签和 Media Source Extensions API。* 应用：不需要兼容IE及移动端的场景"></a>浏览器不支持，但可通过js进行解析，不需要加载插件<br>RTSP =&gt; RTMP =&gt; HTTP-FLV =&gt; flv.js =&gt; HTML5-Video标签<br>* 优势：原生Video标签采用了硬件加速，性能很好，延迟低，支持高清。<br>* 缺点：视频编码必须是H.264，音频编码必须是AAC或MP3；依赖原生HTML5 Video 标签和 Media Source Extensions API。<br>* 应用：不需要兼容IE及移动端的场景</h2><h3 id="HLS-Http-Live-Streaming"><a href="#HLS-Http-Live-Streaming" class="headerlink" title="HLS(Http Live Streaming)"></a>HLS(Http Live Streaming)</h3><h2 id="浏览器支持，不需要加载插件RTSP-HLS-HTML5-Video标签-优势：原生Video标签采用了硬件加速，性能极好，支持高清。-缺点：延迟高-应用：可接受较高延迟的场景"><a href="#浏览器支持，不需要加载插件RTSP-HLS-HTML5-Video标签-优势：原生Video标签采用了硬件加速，性能极好，支持高清。-缺点：延迟高-应用：可接受较高延迟的场景" class="headerlink" title="浏览器支持，不需要加载插件RTSP => HLS => HTML5-Video标签* 优势：原生Video标签采用了硬件加速，性能极好，支持高清。* 缺点：延迟高* 应用：可接受较高延迟的场景"></a>浏览器支持，不需要加载插件<br>RTSP =&gt; HLS =&gt; HTML5-Video标签<br>* 优势：原生Video标签采用了硬件加速，性能极好，支持高清。<br>* 缺点：延迟高<br>* 应用：可接受较高延迟的场景</h2><h2 id="方案选择"><a href="#方案选择" class="headerlink" title="方案选择"></a>方案选择</h2><table>
+<thead>
+<tr>
+<th>方案\要求</th>
+<th>延迟&lt;5s</th>
+<th>兼容高版本Chrome</th>
+<th>不加载插件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RTSP</td>
+<td><font color="green">√</font></td>
+<td><font color="red">×</font></td>
+<td><font color="red">×</font></td>
+</tr>
+<tr>
+<td>RTMP</td>
+<td><font color="green">√</font></td>
+<td><font color="green">√</font></td>
+<td><font color="red">×</font></td>
+</tr>
+<tr>
+<td>HTTP-FLV</td>
+<td><font color="green">√</font></td>
+<td><font color="green">√</font></td>
+<td><font color="green">√</font></td>
+</tr>
+<tr>
+<td>HLS</td>
+<td><font color="red">×</font></td>
+<td><font color="green">√</font></td>
+<td><font color="green">√</font></td>
+</tr>
+</tbody></table>
+<h1 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h1><h2 id="系统结构图"><a href="#系统结构图" class="headerlink" title="系统结构图"></a>系统结构图</h2><img src="/2019/12/12/%E6%91%84%E5%83%8F%E5%A4%B4RTSP%E8%A7%86%E9%A2%91%E6%B5%81%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%92%AD%E6%94%BE%E6%96%B9%E6%A1%88/dataSteam.png" class="" title="数据流向">
+<ul>
+<li><p><strong>推流管理服务器</strong> </p>
+<p>  使用<strong>FFCH4J</strong>(FFmpegCommandHandler4java，一个java封装的FFmpeg命令处理器）调用<strong>FFmpeg</strong>将RTSP流转为RTMP流；</p>
+</li>
+<li><p><strong>直播服务器</strong><br>  使用<strong>Livego</strong>(用GoLang编写的直播服务器)将RTMP流转为HTTP-FLV推送到浏览器；</p>
+</li>
+<li><p><strong>浏览器</strong><br>  使用<strong>FLV.js</strong>解码FLV数据，再通过Media Source Extensions API 喂给原生HTML5 Video标签。</p>
+</li>
+</ul>
+<h2 id="依赖安装及使用"><a href="#依赖安装及使用" class="headerlink" title="依赖安装及使用"></a>依赖安装及使用</h2><h3 id="FFmpeg"><a href="#FFmpeg" class="headerlink" title="FFmpeg"></a>FFmpeg</h3><ul>
+<li>前往 <a target="_blank" rel="noopener" href="http://ffmpeg.org/download.html">http://ffmpeg.org/download.html</a> 下载FFmpeg相关包</li>
+<li>解压缩到安装目录</li>
+<li>进入bin 目录，执行以下语句，测试 rtsp流是否能够播放。  <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay -window_title <span class="string">"直播测试"</span> rtsp://127.0.0.1/live/movie  -fflags nobuffer</span><br></pre></td></tr></tbody></table></figure>
+  <font color="red">注意 在拉取海康流时，需要指定使用tcp方式拉取（-rtsp_transport tcp）。 </font>  <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay -rtsp_transport tcp  -window_title <span class="string">"直播测试"</span> rtsp://127.0.0.1/live/movie  -fflags nobuffer</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="FFCH4J"><a href="#FFCH4J" class="headerlink" title="FFCH4J"></a>FFCH4J</h3><ul>
+<li>拉取工程 <a target="_blank" rel="noopener" href="https://github.com/eguid/FFCH4J.git">https://github.com/eguid/FFCH4J.git</a> </li>
+<li>下载相关依赖</li>
+<li>修改调用参数，优化延迟。<br>  <font color="red">注意 在拉取海康流时，需要指定使用tcp方式拉取。</font>  具体可参考以下参数进行调整： <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -rtsp_transport tcp -i rtsp://127.0.0.1:554/live/movie -tune zerolatency -vcodec copy  -preset ultrafast -f flv -an rtmp://localhost:1935/live/movie</span><br></pre></td></tr></tbody></table></figure></li>
+<li>生成jar包。</li>
+<li>将jar包及loadFFmpeg.properties 配置文件拷贝到单独目录</li>
+<li>运行jar包</li>
+</ul>
+<h3 id="Livego"><a href="#Livego" class="headerlink" title="Livego"></a>Livego</h3><ul>
+<li>下载相应版本<a target="_blank" rel="noopener" href="https://github.com/gwuhaolin/livego/releases">https://github.com/gwuhaolin/livego/releases</a></li>
+<li>解压缩到安装目录，新建一个配置文件 .livego.json 内容如下<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line"><span class="string">"server"</span>: [</span><br><span class="line">  {</span><br><span class="line">    <span class="string">"appname"</span>: <span class="string">"live"</span>,</span><br><span class="line">    <span class="string">"liveon"</span>: <span class="string">"on"</span>,</span><br><span class="line">    <span class="string">"hlson"</span>: <span class="string">"on"</span></span><br><span class="line">  }</span><br><span class="line"> ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<li>运行livego.exe</li>
+</ul>
+<h3 id="flv-js"><a href="#flv-js" class="headerlink" title="flv.js"></a>flv.js</h3><ul>
+<li>下载flv.min.js <a target="_blank" rel="noopener" href="https://github.com/bilibili/flv.js/releases">https://github.com/bilibili/flv.js/releases</a></li>
+<li>将下载的文件拷贝到单独的目录</li>
+<li>新建一个index.html 文件，内容如下： <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>监控测试<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"flv.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">"videoElement"</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">if</span> (flvjs.<span class="title function_">isSupported</span>()) {</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> videoElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">'videoElement'</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> flvPlayer = flvjs.<span class="title function_">createPlayer</span>({</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">type</span>: <span class="string">'flv'</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">url</span>: <span class="string">'http://127.0.0.1:7001/live/movie.flv'</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">hasAudio</span>: <span class="literal">false</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">isLive</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">cors</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">config</span>: {</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">enableWorker</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">enableStashBuffer</span>: <span class="literal">false</span>,</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">stashInitialSize</span>: <span class="number">128</span>,</span></span><br><span class="line"><span class="language-javascript">            }</span></span><br><span class="line"><span class="language-javascript">        });</span></span><br><span class="line"><span class="language-javascript">        flvPlayer.<span class="title function_">attachMediaElement</span>(videoElement);</span></span><br><span class="line"><span class="language-javascript">        flvPlayer.<span class="title function_">load</span>();</span></span><br><span class="line"><span class="language-javascript">        flvPlayer.<span class="title function_">play</span>();</span></span><br><span class="line"><span class="language-javascript">    }</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li>在浏览器打开index.html,即可在页面查看到对应的图像</li>
+<li><font color="red">注意：这里有个坑，流上只有视频没有音频的情况下不能播放，需要添加 hasAudio: false的配置。</font></li>
+</ul>
+</body></html>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nastyair.github.io/NastyAirBLog/2019/12/12/Netty-%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8EC%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E4%BF%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/sunrise.png">
+      <meta itemprop="name" content="NastyAir">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NastyAirBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/12/Netty-%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8EC%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E4%BF%A1/" class="post-title-link" itemprop="url">Netty 客户端与C服务器通信</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-12 09:30:21" itemprop="dateCreated datePublished" datetime="2019-12-12T09:30:21+08:00">2019-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-10-27 23:17:20" itemprop="dateModified" datetime="2024-10-27T23:17:20+08:00">2024-10-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <html><head></head><body></body></html><html><head></head><body><h2 id="Netty-简介"><a href="#Netty-简介" class="headerlink" title="Netty 简介"></a>Netty 简介</h2><p>官网简介：</p>
+<pre><code>Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp; clients.
+</code></pre>
+<p>Netty 是 一个异步事件驱动的网络应用程序框架，用于快速开发可维护的高性能协议服务器和客户端。</p>
+<h2 id="为什么选择-Netty"><a href="#为什么选择-Netty" class="headerlink" title="为什么选择 Netty"></a>为什么选择 Netty</h2><ul>
+<li>JDK 自带的 NIO<ul>
+<li>API 复杂学习成本高，编程复杂易出错</li>
+<li>需要对多线程很熟悉（因为 NIO 涉及到 Reactor 模式）</li>
+<li>JDK NIO 的 bug（例如臭名昭著的 Epoll Bug，它会导致 Selector 空轮询，最终导致 CPU 100%。官方声称在 JDK 1.6 版本的 update 18 修复了该问题，但是直到 JDK 1.7 版本该问题仍旧存在，只不过该 Bug 发生概率降低了一些而已，它并没有被根本解决。）</li>
+<li>需要处理断连重连、网络闪断、半包读写、失败缓存、网络拥塞和异常码流等问题</li>
+</ul>
+</li>
+<li>Netty<ul>
+<li>API 简单易用自带各种协议栈，而且性能优秀</li>
+<li>底层对线程，selector 做了很多细小的优化，精心设计的 reactor 线程模型做到非常高效的并发处理</li>
+<li>解决了 JDK 的包括空轮询在内的许多 bug</li>
+<li>自带的拆包解包，异常检测等机制</li>
+<li>社区活跃，被各类框架广泛使用，健壮性强</li>
+</ul>
+</li>
+</ul>
+<h2 id="Netty-使用"><a href="#Netty-使用" class="headerlink" title="Netty 使用"></a>Netty 使用</h2><p>接下来就写个简单的Netty服务器。服务器启动后接收信息并打印到控制台。客户端启动后发送一条”hello word”消息到服务器。</p>
+<h3 id="holle-word"><a href="#holle-word" class="headerlink" title="holle word"></a>holle word</h3><ul>
+<li><p>新建有个 maven 项目，引入依赖</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/io.netty/netty-all --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.netty<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>netty-all<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.1.39.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>新建一个 DiscardServer 类，内容如下：</p>
+  <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DiscardServer</span> {</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> {</span><br><span class="line"></span><br><span class="line">            <span class="type">NioEventLoopGroup</span> <span class="variable">bossGroup</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">NioEventLoopGroup</span>();</span><br><span class="line">            <span class="type">NioEventLoopGroup</span> <span class="variable">workerGroup</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">NioEventLoopGroup</span>();</span><br><span class="line">            <span class="keyword">try</span> {</span><br><span class="line">            <span class="type">ServerBootstrap</span> <span class="variable">serverBootstrap</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerBootstrap</span>();</span><br><span class="line">            serverBootstrap</span><br><span class="line">                    .group(bossGroup, workerGroup)</span><br><span class="line">                    .channel(NioServerSocketChannel.class)</span><br><span class="line">                    .childHandler(<span class="keyword">new</span> <span class="title class_">ChannelInitializer</span>&lt;NioSocketChannel&gt;() {</span><br><span class="line">                        <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">initChannel</span><span class="params">(NioSocketChannel ch)</span> {</span><br><span class="line">                            ch.pipeline().addLast(<span class="keyword">new</span> <span class="title class_">StringDecoder</span>());</span><br><span class="line">                            ch.pipeline().addLast(<span class="keyword">new</span> <span class="title class_">SimpleChannelInboundHandler</span>&lt;String&gt;() {</span><br><span class="line">                                <span class="meta">@Override</span></span><br><span class="line">                                <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">channelRead0</span><span class="params">(ChannelHandlerContext ctx, String msg)</span> {</span><br><span class="line">                                    System.out.println(msg);</span><br><span class="line">                                }</span><br><span class="line">                            });</span><br><span class="line">                        }</span><br><span class="line">                    })</span><br><span class="line">                    .bind(<span class="number">9527</span>);</span><br><span class="line">            }<span class="keyword">finally</span> {</span><br><span class="line">                workerGroup.shutdownGracefully();</span><br><span class="line">                bossGroup.shutdownGracefully();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>新建一个 DiscardClient 类，内容如下：</p>
+  <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DiscardClient</span> {</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException {</span><br><span class="line">        <span class="type">NioEventLoopGroup</span> <span class="variable">group</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">NioEventLoopGroup</span>();</span><br><span class="line">        <span class="keyword">try</span> {</span><br><span class="line">            <span class="type">Bootstrap</span> <span class="variable">bootstrap</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Bootstrap</span>();</span><br><span class="line">            bootstrap.group(group)</span><br><span class="line">                    .channel(NioSocketChannel.class)</span><br><span class="line">                    .handler(<span class="keyword">new</span> <span class="title class_">ChannelInitializer</span>&lt;Channel&gt;() {</span><br><span class="line">                        <span class="meta">@Override</span></span><br><span class="line">                        <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">initChannel</span><span class="params">(Channel ch)</span> {</span><br><span class="line">                            ch.pipeline().addLast(<span class="keyword">new</span> <span class="title class_">StringEncoder</span>());</span><br><span class="line">                        }</span><br><span class="line">                    });</span><br><span class="line">            <span class="type">Channel</span> <span class="variable">channel</span> <span class="operator">=</span> bootstrap.connect(<span class="string">"127.0.0.1"</span>, <span class="number">9527</span>).channel();</span><br><span class="line">            channel.writeAndFlush(<span class="keyword">new</span> <span class="title class_">Date</span>() + <span class="string">": hello world!"</span>);</span><br><span class="line">            System.out.println(<span class="string">"send"</span>);</span><br><span class="line">        } <span class="keyword">finally</span> {</span><br><span class="line">            group.shutdownGracefully();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="Netty-工作原理"><a href="#Netty-工作原理" class="headerlink" title="Netty 工作原理"></a>Netty 工作原理</h3><h3 id="Netty-执行流程"><a href="#Netty-执行流程" class="headerlink" title="Netty 执行流程"></a>Netty 执行流程</h3><h2 id="Netty-客服端"><a href="#Netty-客服端" class="headerlink" title="Netty 客服端"></a>Netty 客服端</h2><h3 id="抓包"><a href="#抓包" class="headerlink" title="抓包"></a>抓包</h3><h3 id="连接-C-服务器"><a href="#连接-C-服务器" class="headerlink" title="连接 C 服务器"></a>连接 C 服务器</h3><h3 id="大小端"><a href="#大小端" class="headerlink" title="大小端"></a>大小端</h3><h3 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h3><h3 id="粘包处理"><a href="#粘包处理" class="headerlink" title="粘包处理"></a>粘包处理</h3><h3 id="连接保活"><a href="#连接保活" class="headerlink" title="连接保活"></a>连接保活</h3><h3 id="整合到-spring"><a href="#整合到-spring" class="headerlink" title="整合到 spring"></a>整合到 spring</h3><h3 id="异常退出重连"><a href="#异常退出重连" class="headerlink" title="异常退出重连"></a>异常退出重连</h3></body></html>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nastyair.github.io/NastyAirBLog/2019/08/16/novnc-%E4%BD%BF%E7%94%A8token%E8%AE%BF%E9%97%AE%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/sunrise.png">
+      <meta itemprop="name" content="NastyAir">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NastyAirBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/16/novnc-%E4%BD%BF%E7%94%A8token%E8%AE%BF%E9%97%AE%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="post-title-link" itemprop="url">noVNC 使用token访问虚拟机</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-08-16 15:14:19" itemprop="dateCreated datePublished" datetime="2019-08-16T15:14:19+08:00">2019-08-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">环境搭建</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <html><head></head><body></body></html><html><head></head><body><h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>操作系统：CentOS 7<br>宿主机地址：10.6.31.60<br>虚拟机端口 ：5900、5901</p>
+<h1 id="下载CentOS"><a href="#下载CentOS" class="headerlink" title="下载CentOS"></a>下载CentOS</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum istall -y git </span><br><span class="line">git <span class="built_in">clone</span> https://github.com/novnc/noVNC.git</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="启动CentOS（首次使用会下载Websokify）"><a href="#启动CentOS（首次使用会下载Websokify）" class="headerlink" title="启动CentOS（首次使用会下载Websokify）"></a>启动CentOS（首次使用会下载Websokify）</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> noVNC</span><br><span class="line"> ./utils/launch.sh --vnc localhost:5900</span><br></pre></td></tr></tbody></table></figure>
+
+<p>浏览器访问<a target="_blank" rel="noopener" href="http://localhost:6080/vnc.html">http://localhost:6080/vnc.html</a>&nbsp; 或者<a target="_blank" rel="noopener" href="http://localhost:6080/vnc_lite.html">http://localhost:6080/vnc_lite.html</a>&nbsp;（IP根据实际情况作更改），二者区别如下<br>vnc.html&nbsp; &nbsp; &nbsp; &nbsp; 完整界面，有操作按钮<br>vnc_lite.html&nbsp; 精简界面，只有虚拟机内容<br>这样我们便可以在浏览器中直接操作5900的虚拟机，如果需要操作多台虚拟机，我们可以用token 进行配置。</p>
+<h1 id="单独下载websockify"><a href="#单独下载websockify" class="headerlink" title="单独下载websockify"></a>单独下载websockify</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/novnc/websockify.git</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="配置token"><a href="#配置token" class="headerlink" title="配置token"></a>配置token</h1><p>token文件格式（注意空格位置）</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">token1: host1:port1</span><br></pre></td></tr></tbody></table></figure>
+<p>&nbsp;token 文件可以为一个文件，也可以为多个，这里为一个token文件情况。（token文件只要在指定目录即可，也可以没有后缀名，都能够正常识别）</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> websockify</span><br><span class="line"><span class="built_in">mkdir</span> token</span><br><span class="line">vi ./token/token01.conf</span><br></pre></td></tr></tbody></table></figure>
+<p>输入内容如下</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vm01:&nbsp;10.6.31.60:5900</span><br><span class="line">vm02:&nbsp;10.6.31.60:5901</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="启动websockify"><a href="#启动websockify" class="headerlink" title="启动websockify"></a>启动websockify</h1><p>启动前先重启之前的CentOS(指定端口8888)</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./launch.sh --listen 8888</span><br></pre></td></tr></tbody></table></figure>
+<p>然后启动websockify</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./run --token-plugin TokenFile --token-source ./token/ 6080</span><br></pre></td></tr></tbody></table></figure>
+<p>在浏览器输入<a target="_blank" rel="noopener" href="http://localhost:8888/vnc_lite.html?host=10.6.31.60&amp;port=6080&amp;path=websockify/?token=vm01%E5%B0%B1%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BA%86">http://localhost:8888/vnc_lite.html?host=10.6.31.60&amp;port=6080&amp;path=websockify/?token=vm01就可以访问虚拟机了</a></p>
+<p>其中host 为websockify所在的服务器ip，port为其端口，path为访问路径，token 为我们刚才配置的token</p>
+</body></html>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nastyair.github.io/NastyAirBLog/2019/08/15/%E3%80%90js%E3%80%91-JavaScript-%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E5%8D%95%E6%92%ADMac%E5%9C%B0%E5%9D%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/sunrise.png">
+      <meta itemprop="name" content="NastyAir">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NastyAirBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/15/%E3%80%90js%E3%80%91-JavaScript-%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E5%8D%95%E6%92%ADMac%E5%9C%B0%E5%9D%80/" class="post-title-link" itemprop="url">【js】 JavaScript 生成随机单播Mac地址</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-08-15 17:54:17" itemprop="dateCreated datePublished" datetime="2019-08-15T17:54:17+08:00">2019-08-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BB%A3%E7%A0%81%E6%AE%B5%E8%90%BD/" itemprop="url" rel="index">
+                    <span itemprop="name">代码段落</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <html><head></head><body></body></html><html><head></head><body><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">randomMac</span>(<span class="params"></span>) {</span><br><span class="line">     <span class="keyword">const</span> mac = [</span><br><span class="line">       (<span class="number">0x52</span>).<span class="title function_">toString</span>(<span class="number">16</span>),</span><br><span class="line">       (<span class="number">0x54</span>).<span class="title function_">toString</span>(<span class="number">16</span>),</span><br><span class="line">       (<span class="number">0x00</span>).<span class="title function_">toString</span>(<span class="number">16</span>),</span><br><span class="line">       <span class="title class_">Math</span>.<span class="title function_">floor</span>((<span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">0xff</span>)).<span class="title function_">toString</span>(<span class="number">16</span>),</span><br><span class="line">       <span class="title class_">Math</span>.<span class="title function_">floor</span>((<span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">0xff</span>)).<span class="title function_">toString</span>(<span class="number">16</span>),</span><br><span class="line">       <span class="title class_">Math</span>.<span class="title function_">floor</span>((<span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">0xff</span>)).<span class="title function_">toString</span>(<span class="number">16</span>)</span><br><span class="line">     ]</span><br><span class="line">     <span class="keyword">return</span> mac.<span class="title function_">join</span>(<span class="string">':'</span>)</span><br><span class="line">   }</span><br></pre></td></tr></tbody></table></figure></body></html>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nastyair.github.io/NastyAirBLog/2019/08/06/AMD-Radeon-%E6%98%BE%E5%8D%A1%E8%AE%BE%E7%BD%AE%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%EF%BC%88%E9%97%AA%E9%80%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/sunrise.png">
+      <meta itemprop="name" content="NastyAir">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NastyAirBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/06/AMD-Radeon-%E6%98%BE%E5%8D%A1%E8%AE%BE%E7%BD%AE%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%EF%BC%88%E9%97%AA%E9%80%80%EF%BC%89/" class="post-title-link" itemprop="url">AMD Radeon 显卡设置无法打开（闪退）</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-08-06 23:04:44" itemprop="dateCreated datePublished" datetime="2019-08-06T23:04:44+08:00">2019-08-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%A3%85%E6%9C%BA%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index">
+                    <span itemprop="name">装机相关</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <html><head></head><body></body></html><html><head></head><body><p>问题：AMD Radeon设置无法打开，直接闪退</p>
+<p>原因：Intel显卡驱动与AMD的显卡驱动存在冲突，导致AMD Radeon设置无法打开。</p>
+<p>解决办法：卸载Intel显卡驱动，然后安装AMD 显卡驱动。</p>
+<p>详细步骤如下：</p>
+<h1 id="准备工作："><a href="#准备工作：" class="headerlink" title="准备工作："></a>准备工作：</h1><p>下载AMD Radeon 最新驱动程序。<br>下载DDU（Display Driver Uninstaller）显卡驱动清理工具</p>
+<h1 id="重启进入安全模式"><a href="#重启进入安全模式" class="headerlink" title="重启进入安全模式"></a>重启进入安全模式</h1><p>在开始菜单-&gt;电源，按住键盘的Shift再单击重启</p>
+<p>依次选择 疑难解答-&gt;高级选项-&gt;启动设置（可能不在第一页）-&gt;重启<br>使用数字键4或者功能键F4，选择 启用安全模式。</p>
+<h1 id="卸载驱动"><a href="#卸载驱动" class="headerlink" title="卸载驱动"></a>卸载驱动</h1><p>安全模式重新启动后，使用刚才下载的DDU卸载Intel GPU驱动程序及AMD显卡驱动，并拔下网线（window防止自动更新驱动），然后重新启动。<br>右键amd驱动程序，选择 以admin身份运行，然后正常安装最新的amd驱动程序，安装完成后插上网线。<br>现在就正常打开AMD Radeon设置了。</p>
+</body></html>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nastyair.github.io/NastyAirBLog/2019/05/03/KVM-Java%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/sunrise.png">
+      <meta itemprop="name" content="NastyAir">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NastyAirBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/05/03/KVM-Java%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">KVM Java调用接口</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-03 15:30:05" itemprop="dateCreated datePublished" datetime="2019-05-03T15:30:05+08:00">2019-05-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/KVM/" itemprop="url" rel="index">
+                    <span itemprop="name">KVM</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <html><head></head><body></body></html><html><head></head><body><h1 id="Connect-建立连接"><a href="#Connect-建立连接" class="headerlink" title="Connect 建立连接"></a>Connect 建立连接</h1><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Connect</span> <span class="variable">connect</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Connect</span>(<span class="string">"qemu+tcp://192.168.10.105:16509/system"</span> );</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="方法说明"><a href="#方法说明" class="headerlink" title="方法说明"></a>方法说明</h2><pre><code>Connect(String uri)
+</code></pre>
+<p>此方法建立的连接支持读写。</p>
+<pre><code>Connect(String uri, boolean readOnly)  
+</code></pre>
+<p>此方法建立的连接可设置是否只读。</p>
+<pre><code>Connect(String uri, ConnectAuth auth, int flags)
+</code></pre>
+<p>此方法建立的连接可传入一个安全验证对象      </p>
+<h2 id="传入URL格式"><a href="#传入URL格式" class="headerlink" title="传入URL格式"></a>传入URL格式</h2><pre><code>driver[+transport]://[username@][hostname][:port]/[path][?extraparameters]
+    driver 表示虚拟化引擎如 qemu、xen、test 等。
+    transport 表示传输协议如 tcp 等。
+    hostname 表示要连接的远程宿主机的 IP 地址，示例代码为：192.168.10.105。
+    port 表示要连接的远程宿主机的端口。
+    path 表示资源范围，有两个值：system 和 session，其中 system 表示所有虚拟化资源，session 表示当前用户的虚拟化资源，通常使用 system。
+    extraparameters 表示使用特定传输协议的额外参数。
+</code></pre>
+<h1 id="StoragePool-相关方法"><a href="#StoragePool-相关方法" class="headerlink" title="StoragePool 相关方法"></a>StoragePool 相关方法</h1><h2 id="遍历StoragePool"><a href="#遍历StoragePool" class="headerlink" title="遍历StoragePool"></a>遍历StoragePool</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] pools = connect.listStoragePools();</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="查询StoragePool"><a href="#查询StoragePool" class="headerlink" title="查询StoragePool"></a>查询StoragePool</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StoragePool</span> <span class="variable">storagePool</span> <span class="operator">=</span> connect.storagePoolLookupByName(<span class="string">"default"</span>);</span><br><span class="line"><span class="type">StoragePoolInfo</span> <span class="variable">storagePoolInfo</span> <span class="operator">=</span> storagePool.getInfo();</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="方法说明-1"><a href="#方法说明-1" class="headerlink" title="方法说明"></a>方法说明</h3><pre><code>StoragePool storagePoolLookupByName(String name)
+</code></pre>
+<p>通过唯一的名称获取 storage pool。</p>
+<pre><code>StoragePool storagePoolLookupByUUID(UUID uuid)
+</code></pre>
+<p>通过全局唯一的 id 获取 storage pool。</p>
+<pre><code>StoragePool storagePoolLookupByUUIDString(String UUID)
+</code></pre>
+<p>通过全局唯一的 id 获取 storage pool。</p>
+<h2 id="创建StoragePool"><a href="#创建StoragePool" class="headerlink" title="创建StoragePool"></a>创建StoragePool</h2><h3 id="StoragePool-配置描述-xml："><a href="#StoragePool-配置描述-xml：" class="headerlink" title="StoragePool 配置描述 xml："></a>StoragePool 配置描述 xml：</h3><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">pool</span> <span class="attr">type</span>=<span class="string">"dir"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>virtimages<span class="tag">&lt;/<span class="name">name</span>&gt;</span> <span class="comment">&lt;!--名称必须唯一--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">capacity</span> <span class="attr">unit</span>=<span class="string">'GiB'</span>&gt;</span>40<span class="tag">&lt;/<span class="name">capacity</span>&gt;</span> <span class="comment">&lt;!--StoragePool 的容量--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">allocation</span>&gt;</span>0<span class="tag">&lt;/<span class="name">allocation</span>&gt;</span> <span class="comment">&lt;!--StoragePool 的已用容量--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">target</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">path</span>&gt;</span>/home/kyyee/images<span class="tag">&lt;/<span class="name">path</span>&gt;</span> <span class="comment">&lt;!--StoragePool 在宿主机的路径--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">permissions</span>&gt;</span> <span class="comment">&lt;!--权限--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mode</span>&gt;</span>0711<span class="tag">&lt;/<span class="name">mode</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">owner</span>&gt;</span>0<span class="tag">&lt;/<span class="name">owner</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">group</span>&gt;</span>0<span class="tag">&lt;/<span class="name">group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">permissions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">pool</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StoragePool</span> <span class="variable">storagePool</span> <span class="operator">=</span> kvmConn.storagePoolCreateXML(xmlDesc, <span class="number">0</span>);</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="定义StoragePool"><a href="#定义StoragePool" class="headerlink" title="定义StoragePool"></a>定义StoragePool</h2><h3 id="定义临时StoragePool"><a href="#定义临时StoragePool" class="headerlink" title="定义临时StoragePool"></a>定义临时StoragePool</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StoragePool <span class="title function_">storagePoolCreateXML</span><span class="params">(String xmlDesc, <span class="type">int</span> flags)</span> </span><br></pre></td></tr></tbody></table></figure>
+<p> 顾名思义storagePoolCreateXML 创建的是一个临时的 StoragePool ，重启宿主机就会消失，删除调用 destroy()。</p>
+<h3 id="定义持久化StoragePool"><a href="#定义持久化StoragePool" class="headerlink" title="定义持久化StoragePool"></a>定义持久化StoragePool</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StoragePool <span class="title function_">storagePoolDefineXML</span><span class="params">(String xml, <span class="type">int</span> flags)</span> </span><br></pre></td></tr></tbody></table></figure>
+<p>storagePoolDefineXML 定义的是一个持久化的 StoragePool ，它一直存在,除非明确调用 undefine()方法。</p>
+<h2 id="删除StoragePool"><a href="#删除StoragePool" class="headerlink" title="删除StoragePool"></a>删除StoragePool</h2><p>删除临时StoragePool</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">storagePool.destroy();</span><br></pre></td></tr></tbody></table></figure>
+<p>删除持久化的StoragePool</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">storagePool.undefine();</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="StorageVolume相关方法"><a href="#StorageVolume相关方法" class="headerlink" title="StorageVolume相关方法"></a>StorageVolume相关方法</h1><h2 id="遍历StorageVolume"><a href="#遍历StorageVolume" class="headerlink" title="遍历StorageVolume"></a>遍历StorageVolume</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String[] volumes = storagePool.listVolumes();</span><br><span class="line">logger.info(<span class="string">"存储卷个数：{}"</span>, volumes.length);</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="查询StorageVolume"><a href="#查询StorageVolume" class="headerlink" title="查询StorageVolume"></a>查询StorageVolume</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StorageVol</span> <span class="variable">storageVol</span> <span class="operator">=</span> storagePool.storageVolLookupByName(volume);</span><br><span class="line"><span class="type">StorageVolInfo</span> <span class="variable">storageVolInfo</span> <span class="operator">=</span> storageVol.getInfo();</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="创建StorageVolume"><a href="#创建StorageVolume" class="headerlink" title="创建StorageVolume"></a>创建StorageVolume</h2><h3 id="示例-StorageVol-配置描述-xml"><a href="#示例-StorageVol-配置描述-xml" class="headerlink" title="示例 StorageVol 配置描述 xml"></a>示例 StorageVol 配置描述 xml</h3><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">volume</span> <span class="attr">type</span>=<span class="string">'file'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>kvmdemo.qcow2<span class="tag">&lt;/<span class="name">name</span>&gt;</span> <span class="comment">&lt;!--名称必须唯一--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">capacity</span> <span class="attr">unit</span>=<span class="string">'GiB'</span>&gt;</span>10<span class="tag">&lt;/<span class="name">capacity</span>&gt;</span> <span class="comment">&lt;!--StorageVol 的容量--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">allocation</span>&gt;</span>0<span class="tag">&lt;/<span class="name">allocation</span>&gt;</span> <span class="comment">&lt;!--StorageVol 的已用容量--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">target</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">path</span>&gt;</span>/var/lib/libvirt/images/kvmdemo.qcow2<span class="tag">&lt;/<span class="name">path</span>&gt;</span> <span class="comment">&lt;!--StorageVol 在宿主机的路径--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">format</span> <span class="attr">type</span>=<span class="string">'qcow2'</span>/&gt;</span> <span class="comment">&lt;!--文件类型，通常都是 qcow2，也可以是 raw--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">permissions</span>&gt;</span> <span class="comment">&lt;!--权限--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mode</span>&gt;</span>0600<span class="tag">&lt;/<span class="name">mode</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">owner</span>&gt;</span>0<span class="tag">&lt;/<span class="name">owner</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">group</span>&gt;</span>0<span class="tag">&lt;/<span class="name">group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">permissions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">volume</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StorageVol</span> <span class="variable">storageVol</span> <span class="operator">=</span> storagePool.storageVolCreateXML(xmlDesc, <span class="number">0</span>);</span><br><span class="line"><span class="type">StorageVolInfo</span> <span class="variable">storageVolInfo</span> <span class="operator">=</span> storageVol.getInfo();</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="方法说明-2"><a href="#方法说明-2" class="headerlink" title="方法说明"></a>方法说明</h3><pre><code> StorageVol storageVolCreateXML(String xmlDesc, int flags)
+</code></pre>
+<p> storageVolCreateXML创建一个全新的镜像，如果虚拟机基于这个镜像文件创建，那么还需要挂载光盘驱动器安装操作系统才能使用虚拟机</p>
+<h2 id="克隆StorageVolume"><a href="#克隆StorageVolume" class="headerlink" title="克隆StorageVolume"></a>克隆StorageVolume</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//被克隆镜像</span></span><br><span class="line"><span class="type">StorageVol</span> <span class="variable">genericVol</span> <span class="operator">=</span> storagePool.storageVolLookupByName(<span class="string">"generic.qcow2"</span>);</span><br><span class="line"><span class="type">StorageVol</span> <span class="variable">storageVol</span> <span class="operator">=</span> storagePool.storageVolCreateXMLFrom(xmlDesc, genericVol, <span class="number">0</span>);</span><br></pre></td></tr></tbody></table></figure>
+<p>storageVolCreateXMLFrom 基于传入的 cloneVolume 克隆一个镜像，需保证克隆的镜像的名称和路径唯一，否则将克隆失败。</p>
+<h2 id="删除StorageVolume"><a href="#删除StorageVolume" class="headerlink" title="删除StorageVolume"></a>删除StorageVolume</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">storageVol.wipe();</span><br><span class="line">storageVol.delete(<span class="number">0</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="管理虚拟机生命周期"><a href="#管理虚拟机生命周期" class="headerlink" title="管理虚拟机生命周期"></a>管理虚拟机生命周期</h1><h2 id="遍历宿主机上的客户机（虚拟机）"><a href="#遍历宿主机上的客户机（虚拟机）" class="headerlink" title="遍历宿主机上的客户机（虚拟机）"></a>遍历宿主机上的客户机（虚拟机）</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] idsOfDomain = connect.listDomains();</span><br><span class="line">logger.info(<span class="string">"正在运行的虚拟机个数：{}"</span>, idsOfDomain.length);</span><br><span class="line"></span><br><span class="line">String[] namesOfDefinedDomain = connect.listDefinedDomains();</span><br><span class="line">logger.info(<span class="string">"已定义未运行的虚拟机个数：{}"</span>, namesOfDefinedDomain.length);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="查询客户机（虚拟机）"><a href="#查询客户机（虚拟机）" class="headerlink" title="查询客户机（虚拟机）"></a>查询客户机（虚拟机）</h2><pre><code>Domain domainLookupByID(int id)
+通过唯一的 id 获取客户机（虚拟机）。
+Domain domainLookupByName(String name)
+通过唯一的名称获取客户机（虚拟机）。
+Domain domainLookupByUUID(int[] UUID)
+通过唯一的 UUID 获取客户机（虚拟机）。
+Domain domainLookupByUUID(UUID uuid)
+通过唯一的 UUID 获取客户机（虚拟机）。
+Domain domainLookupByUUIDString(String UUID)
+通过唯一的 UUID 获取客户机（虚拟机）。
+</code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> id : idsOfDomain) {</span><br><span class="line"><span class="type">Domain</span> <span class="variable">domain</span> <span class="operator">=</span> connect.domainLookupByID(id);</span><br><span class="line">logger.info(<span class="string">"虚拟机的id：{}"</span>, domain.getID());</span><br><span class="line">logger.info(<span class="string">"虚拟机的uuid：{}"</span>, domain.getUUIDString());</span><br><span class="line">logger.info(<span class="string">"虚拟机的名称：{}"</span>, domain.getName());</span><br><span class="line">logger.info(<span class="string">"虚拟机的是否自动启动：{}"</span>, domain.getAutostart());</span><br><span class="line">logger.info(<span class="string">"虚拟机的状态：{}"</span>, domain.getInfo().state);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="创建客户机（虚拟机）"><a href="#创建客户机（虚拟机）" class="headerlink" title="创建客户机（虚拟机）"></a>创建客户机（虚拟机）</h2><h3 id="示例客户机（虚拟机）配置描述-xml"><a href="#示例客户机（虚拟机）配置描述-xml" class="headerlink" title="示例客户机（虚拟机）配置描述 xml"></a>示例客户机（虚拟机）配置描述 xml</h3><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">domain</span> <span class="attr">type</span>=<span class="string">'kvm'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>kvmdemo<span class="tag">&lt;/<span class="name">name</span>&gt;</span> <span class="comment">&lt;!--名称必须唯一--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uuid</span>&gt;</span>c6e408f3-7750-47ca-8bd1-d19837271472<span class="tag">&lt;/<span class="name">uuid</span>&gt;</span> <span class="comment">&lt;!--uuid必须唯一，可使用 java.util.UUID 随机生成--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">memory</span> <span class="attr">unit</span>=<span class="string">'MiB'</span>&gt;</span>512<span class="tag">&lt;/<span class="name">memory</span>&gt;</span> <span class="comment">&lt;!--最大可用内存配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">currentMemory</span> <span class="attr">unit</span>=<span class="string">'MiB'</span>&gt;</span>512<span class="tag">&lt;/<span class="name">currentMemory</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">vcpu</span> <span class="attr">placement</span>=<span class="string">'static'</span>&gt;</span>1<span class="tag">&lt;/<span class="name">vcpu</span>&gt;</span> <span class="comment">&lt;!--配置cpu--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">os</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">type</span> <span class="attr">arch</span>=<span class="string">'x86_64'</span> <span class="attr">machine</span>=<span class="string">'pc'</span>&gt;</span>hvm<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">boot</span> <span class="attr">dev</span>=<span class="string">'hd'</span>/&gt;</span> <span class="comment">&lt;!--硬盘启动--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">boot</span> <span class="attr">dev</span>=<span class="string">'cdrom'</span>/&gt;</span> <span class="comment">&lt;!--光驱启动--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">os</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">features</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">acpi</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">apic</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">pae</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">features</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">clock</span> <span class="attr">offset</span>=<span class="string">'localtime'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">on_poweroff</span>&gt;</span>destroy<span class="tag">&lt;/<span class="name">on_poweroff</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">on_reboot</span>&gt;</span>restart<span class="tag">&lt;/<span class="name">on_reboot</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">on_crash</span>&gt;</span>restart<span class="tag">&lt;/<span class="name">on_crash</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">devices</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">emulator</span>&gt;</span>/usr/bin/qemu-system-x86_64<span class="tag">&lt;/<span class="name">emulator</span>&gt;</span> <span class="comment">&lt;!--模拟器所在路径，视自己情况配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">disk</span> <span class="attr">type</span>=<span class="string">'file'</span> <span class="attr">device</span>=<span class="string">'disk'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">driver</span> <span class="attr">name</span>=<span class="string">'qemu'</span> <span class="attr">type</span>=<span class="string">'qcow2'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">file</span>=<span class="string">'/var/lib/libvirt/images/kvmdemo.qcow2'</span>/&gt;</span> <span class="comment">&lt;!--虚拟硬盘配置，这个地方填生成的镜像文件所在的路径即可--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">target</span> <span class="attr">dev</span>=<span class="string">'hda'</span> <span class="attr">bus</span>=<span class="string">'ide'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">disk</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;disk type='file' device='cdrom'&gt;</span></span><br><span class="line"><span class="comment">&lt;source file='/var/lib/libvirt/images/ubuntu-16.04-desktop-amd64.iso'/&gt;</span></span><br><span class="line"><span class="comment">&lt;target dev='hdb' bus='ide'/&gt;</span></span><br><span class="line"><span class="comment">&lt;readonly/&gt;</span></span><br><span class="line"><span class="comment">&lt;/disk&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">interface</span> <span class="attr">type</span>=<span class="string">'bridge'</span>&gt;</span> <span class="comment">&lt;!--网络配置，本示例配置成桥接模式--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mac</span> <span class="attr">address</span>=<span class="string">'52:54:00:f4:06:03'</span>/&gt;</span> <span class="comment">&lt;!--mac 地址必须唯一--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">bridge</span>=<span class="string">'br0'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">interface</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">console</span> <span class="attr">type</span>=<span class="string">'pty'</span>&gt;</span> <span class="comment">&lt;!--控制台配置，如果需要使用 virsh 命令登陆虚拟机，则必须添加--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">target</span> <span class="attr">port</span>=<span class="string">'0'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">console</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'tablet'</span> <span class="attr">bus</span>=<span class="string">'usb'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'mouse'</span> <span class="attr">bus</span>=<span class="string">'ps2'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'keyboard'</span> <span class="attr">bus</span>=<span class="string">'ps2'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">graphics</span> <span class="attr">type</span>=<span class="string">'vnc'</span> <span class="attr">autoport</span>=<span class="string">'yes'</span> <span class="attr">keymap</span>=<span class="string">'en-us'</span></span></span><br><span class="line"><span class="tag"><span class="attr">listen</span>=<span class="string">'0.0.0.0'</span>/&gt;</span> <span class="comment">&lt;!--VNC配置，autoport="yes"表示自动分配VNC端口，推荐使用，listen="0.0.0.0"表示监听所有IP--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">memballoon</span> <span class="attr">model</span>=<span class="string">"virtio"</span>&gt;</span> <span class="comment">&lt;!--内存监控配置，添加此配置，才能正常取得内存使用情况--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">stats</span> <span class="attr">period</span>=<span class="string">"10"</span>/&gt;</span><span class="comment">&lt;!--每10s钟收集一次--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">memballoon</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">devices</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">domain</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Domain</span> <span class="variable">domain</span> <span class="operator">=</span> connect.domainCreateXML(xmlDesc, <span class="number">0</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="定义客户机（虚拟机）"><a href="#定义客户机（虚拟机）" class="headerlink" title="定义客户机（虚拟机）"></a>定义客户机（虚拟机）</h2><h3 id="定义临时虚拟机"><a href="#定义临时虚拟机" class="headerlink" title="定义临时虚拟机"></a>定义临时虚拟机</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Domain</span> <span class="variable">domain</span> <span class="operator">=</span> connect.domainDefineXML(xmlDesc);</span><br></pre></td></tr></tbody></table></figure>
+<p>Domain domainDefineXML(String xmlDesc)创建的客户机（虚拟机）是一个临时的，当调用 destroy() 或者宿主机重启后，就会消失</p>
+<h3 id="定义持久化虚拟机"><a href="#定义持久化虚拟机" class="headerlink" title="定义持久化虚拟机"></a>定义持久化虚拟机</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Domain</span> <span class="variable">domain</span> <span class="operator">=</span> connect.domainDefineXML(xmlDesc);</span><br></pre></td></tr></tbody></table></figure>
+<p>Domain domainCreateXML(String xmlDesc, int flags)定义的是一个持久化的客户机（虚拟机），除非明确调用 undefine()，否则它一直存在，此外，domainDefineXML 会覆盖之前的定义，但是有些操作会阻止这个操作，比如 block copy 操作，要先使用 abortJob() 操作取消这些块拷贝操作。</p>
+<ol start="5">
+<li>   删除客户机（虚拟机）<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">domain.destroy(); <span class="comment">// 强制关机</span></span><br><span class="line">domain.undefine();</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+</body></html>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nastyair.github.io/NastyAirBLog/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/sunrise.png">
+      <meta itemprop="name" content="NastyAir">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NastyAirBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">KVM安装及WIN下Java环境搭建</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-30 15:31:50" itemprop="dateCreated datePublished" datetime="2019-04-30T15:31:50+08:00">2019-04-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/KVM/" itemprop="url" rel="index">
+                    <span itemprop="name">KVM</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <html><head></head><body></body></html><html><head></head><body><h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><h2 id="宿主机环境准备"><a href="#宿主机环境准备" class="headerlink" title="宿主机环境准备"></a>宿主机环境准备</h2><p>系统安装——CentOS7安装</p>
+<h2 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h2><p>使用镜像CentOS-7-x86_64-Minimal-1810.iso<br><font color="red">特别注意：请务必开启CPU虚拟化</font></p>
+<img src="/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/20190830150623454.png" class="" title="VM开启虚拟化">
+<!-- ![](/20190830150623454.png) -->
+<h2 id="实体机安装"><a href="#实体机安装" class="headerlink" title="实体机安装"></a>实体机安装</h2><p><font color="red">特别注意：请务必在bios中开启CPU虚拟化</font></p>
+<h1 id="KVM及其相关依赖安装"><a href="#KVM及其相关依赖安装" class="headerlink" title="KVM及其相关依赖安装"></a>KVM及其相关依赖安装</h1><h2 id="配置网络"><a href="#配置网络" class="headerlink" title="配置网络"></a>配置网络</h2><p>装好CentOS7后，默认网卡是未启动的，需要修改网卡配置<br>执行如下命令获取</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></tbody></table></figure>
+<img src="/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/20190830150635551.png" class="" title="VM开启虚拟化">
+<p>修改对应的网络配置文件</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></tbody></table></figure>
+<img src="/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/20190830150642362.png" class="" title="VM开启虚拟化">
+
+
+<p>将ONBOOT=no改为yes，将BOOTPROTO=dhcp改为BOOTPROTO=static,并在后面增加几行内容：<br><font color="red">以下配置需要根据实际情况调整</font></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IPADDR=192.168.127.128</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">GATEWAY=192.168.127.2</span><br><span class="line">DNS1=119.29.29.29</span><br></pre></td></tr></tbody></table></figure>
+
+
+<p>保存后退出，然后输入以下命令来重启网络服务：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network.service&nbsp;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="安装KVM"><a href="#安装KVM" class="headerlink" title="安装KVM"></a>安装KVM</h2><p>执行如下命令</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install kvm python-virtinst libvirt&nbsp; bridge-utils virt-manager qemu-kvm-tools&nbsp; virt-viewer&nbsp; virt-v2v libguestfs-tools-c</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="查看KVM版本"><a href="#查看KVM版本" class="headerlink" title="查看KVM版本"></a>查看KVM版本</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">qemu-img --<span class="built_in">help</span> | grep version</span><br><span class="line">``</span><br><span class="line">如果版本过低需要升级KVM</span><br><span class="line">``` bash</span><br><span class="line">yum –y remove qemu-kvm</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="升级KVM"><a href="#升级KVM" class="headerlink" title="升级KVM"></a>升级KVM</h2><p>下载 KVM包</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://download.qemu.org/qemu-3.1.0-rc0.tar.xz</span><br></pre></td></tr></tbody></table></figure>
+<p>如果提示未找到wget命令</p>
+<p>需要执行以下命令安装wget</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install wget -y</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ automake libtool zlib-devel glib2-devel bzip2-devel libuuid-devel spice-protocol spice-server-devel usbredir-devel libaio-devel</span><br></pre></td></tr></tbody></table></figure>
+<p>解压tar 并执行编译安装</p>
+<p>1、解压tar包</p>
+<p>进入“qemu-3.1.0-rc0.tar.xz”文件所在目录</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvJf qemu-3.1.0-rc0.tar.xz</span><br></pre></td></tr></tbody></table></figure>
+<p>2、进入解压目录执行命令：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> qemu-3.1.0-rc0</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></tbody></table></figure>
+<p>经过漫长的等待后KVM安装完成，执行命令查看KVM版本：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-img –version</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="NOVNC"><a href="#NOVNC" class="headerlink" title="NOVNC"></a>NOVNC</h1><h2 id="修改libvirt配置文件"><a href="#修改libvirt配置文件" class="headerlink" title="修改libvirt配置文件"></a>修改libvirt配置文件</h2><p>取消一下选项注释:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/libvirt/libvirtd.conf</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">listen_tls = 0</span><br><span class="line"></span><br><span class="line">listen_tcp = 1</span><br><span class="line"></span><br><span class="line">tcp_port = <span class="string">"16509"</span></span><br><span class="line"></span><br><span class="line">listen_addr = <span class="string">"0.0.0.0"</span>&nbsp; //地址必须修改为0.0.0.0</span><br><span class="line"></span><br><span class="line">auth_tcp = <span class="string">"none"</span>&nbsp;&nbsp; //如值不是none，需要手动修改。</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="修改启动文件"><a href="#修改启动文件" class="headerlink" title="修改启动文件"></a>修改启动文件</h2><p>1、进入文件编译：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/libvirtd</span><br></pre></td></tr></tbody></table></figure>
+<p>取消一下选项注释：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LIBVIRTD_ARGS=<span class="string">"--listen"</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="启动libvirt"><a href="#启动libvirt" class="headerlink" title="启动libvirt"></a>启动libvirt</h2><p>执行命令：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart libvirtd</span><br></pre></td></tr></tbody></table></figure>
+<p>注意：如果启动失败，注意检查配置文件的准确性。</p>
+<h2 id="下载-noVNC"><a href="#下载-noVNC" class="headerlink" title="下载 noVNC"></a>下载 noVNC</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> git <span class="built_in">clone</span> https://github.com/novnc/noVNC.git</span><br></pre></td></tr></tbody></table></figure>
+<p>完毕后，进入 noVNC 文件夹，执行如下命令。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ./utils/launch.sh --vnc 192.168.10.231:5900</span><br></pre></td></tr></tbody></table></figure>
+<p>然后在浏览器输入：<br><a target="_blank" rel="noopener" href="http://192.168.10.230:6080/vnc.html?host=192.168.10.230&amp;port=6080">http://192.168.10.230:6080/vnc.html?host=192.168.10.230&amp;port=6080</a></p>
+<h1 id="Java开发环境准备"><a href="#Java开发环境准备" class="headerlink" title="Java开发环境准备"></a>Java开发环境准备</h1><h2 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h2><p>下载安装libvirt的windows下的远程管理工具<br><a target="_blank" rel="noopener" href="https://libvirt.org/sources/win32_experimental/Libvirt-0.8.8-0.exe">https://libvirt.org/sources/win32_experimental/Libvirt-0.8.8-0.exe</a><br>安装完成之后，进入安装好的bin目录，将bin目录下的libvirt-0.dll文件的名称修改未成virt.dll</p>
+<h2 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h2><p>新建jna.library.path环境变量url为安装好的bin目录。这是为了让javaAPI找到dll文件，所以指定了jna路径。</p>
+<img src="/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/20190830150656390.png" class="" title="VM开启虚拟化">
+
+<p><font color="red">注意：添加环境变量后如若未生效，需重启IDE或者电脑。</font></p>
+<h2 id="JDK选择"><a href="#JDK选择" class="headerlink" title="JDK选择"></a>JDK选择</h2><p>因为libvirt的windows下的远程管理工具是32位的，所以JDK也必须为32位的JDK。<br>在linux环境不存在这个问题。</p>
+</body></html>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nastyair.github.io/NastyAirBLog/2018/12/06/%E3%80%90Java%E3%80%91-%E5%8C%85%E5%90%AB%E4%B8%AD%E6%96%87%E6%95%B0%E5%AD%97%E7%9A%84%E6%96%87%E5%AD%97%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/sunrise.png">
+      <meta itemprop="name" content="NastyAir">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NastyAirBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/06/%E3%80%90Java%E3%80%91-%E5%8C%85%E5%90%AB%E4%B8%AD%E6%96%87%E6%95%B0%E5%AD%97%E7%9A%84%E6%96%87%E5%AD%97%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">【Java】 包含中文数字的文字排序</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-06 11:19:50" itemprop="dateCreated datePublished" datetime="2018-12-06T11:19:50+08:00">2018-12-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BB%A3%E7%A0%81%E6%AE%B5%E8%90%BD/" itemprop="url" rel="index">
+                    <span itemprop="name">代码段落</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <html><head></head><body></body></html><html><head></head><body><p>需排序字段 如：XX八十一局, XX十二局, XX三十四局, XX四局, XX五局, XX一百零六局, XX七局<br>期望排序结果：XX四局, XX五局, XX七局, XX十二局, XX三十四局, XX八十一局, XX一百零六局</p>
+<p>思路：截取 各个字符串的中文数字部分，然后将其转换为阿拉伯数字后进行比较。</p>
+<p>截取中文字符串 方法：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 截取第一处的中文数字字符串</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> str</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title function_">getNumberStr</span><span class="params">(String str)</span> {</span><br><span class="line">    <span class="type">StringBuilder</span> <span class="variable">stringBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">    <span class="type">boolean</span> <span class="variable">isFirst</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">    String chineseNumStr=<span class="string">"零一二三四五六七八九十百千万亿"</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; str.length(); i++) {</span><br><span class="line">        <span class="type">String</span> <span class="variable">tempStr</span> <span class="operator">=</span> str.substring(i, i + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (chineseNumStr.contains(tempStr)){</span><br><span class="line">            stringBuilder.append(tempStr);</span><br><span class="line">            <span class="keyword">if</span> (isFirst) {</span><br><span class="line">                isFirst = <span class="literal">false</span>;</span><br><span class="line">            }</span><br><span class="line">        } <span class="keyword">else</span> {</span><br><span class="line">            <span class="keyword">if</span> (!isFirst) {</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> stringBuilder.toString();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>将中文数字转换为 阿拉伯数字</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 将中文数字转换为 阿拉伯数字</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Tuzi294</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> chineseNumber 中文数字字符串</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 转换后的阿拉伯数字</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">long</span> <span class="title function_">chineseNumber2Int</span><span class="params">(String chineseNumber)</span> {</span><br><span class="line">    <span class="type">String</span> <span class="variable">aval</span> <span class="operator">=</span> <span class="string">"零一二三四五六七八九"</span>;</span><br><span class="line">    <span class="type">String</span> <span class="variable">bval</span> <span class="operator">=</span> <span class="string">"十百千万亿"</span>;</span><br><span class="line">    <span class="type">int</span>[] bnum = {<span class="number">10</span>, <span class="number">100</span>, <span class="number">1000</span>, <span class="number">10000</span>, <span class="number">100000000</span>};</span><br><span class="line">    <span class="type">long</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">char</span>[] arr = chineseNumber.toCharArray();</span><br><span class="line">    <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> arr.length;</span><br><span class="line">    Stack&lt;Integer&gt; stack = <span class="keyword">new</span> <span class="title class_">Stack</span>&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len; i++) {</span><br><span class="line">        <span class="type">char</span> <span class="variable">s</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        <span class="comment">//跳过零</span></span><br><span class="line">        <span class="keyword">if</span> (s == <span class="string">'零'</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="comment">//用下标找到对应数字</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> bval.indexOf(s);</span><br><span class="line">        <span class="comment">//如果不在bval中，即当前字符为数字，直接入栈</span></span><br><span class="line">        <span class="keyword">if</span> (index == -<span class="number">1</span>) {</span><br><span class="line">            stack.push(aval.indexOf(s));</span><br><span class="line">        } <span class="keyword">else</span> { <span class="comment">//当前字符为单位。</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">tempsum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">val</span> <span class="operator">=</span> bnum[index];</span><br><span class="line">            <span class="comment">//如果栈为空则直接入栈</span></span><br><span class="line">            <span class="keyword">if</span> (stack.isEmpty()) {</span><br><span class="line">                stack.push(val);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="comment">//如果栈中有比val小的元素则出栈，累加，乘N，再入栈</span></span><br><span class="line">            <span class="keyword">while</span> (!stack.isEmpty() &amp;&amp; stack.peek() &lt; val) {</span><br><span class="line">                tempsum += stack.pop();</span><br><span class="line">            }</span><br><span class="line">            <span class="comment">//判断是否经过乘法处理</span></span><br><span class="line">            <span class="keyword">if</span> (tempsum == <span class="number">0</span>) {</span><br><span class="line">                stack.push(val);</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                stack.push(tempsum * val);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//计算最终的和</span></span><br><span class="line">    <span class="keyword">while</span> (!stack.isEmpty()) {</span><br><span class="line">        num += stack.pop();</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>调用方法</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> {</span><br><span class="line">    List&lt;String&gt; data = Arrays.asList(<span class="string">"XX八十一局"</span>, <span class="string">"XX十二局"</span>, <span class="string">"XX三十四局"</span>, <span class="string">"XX四局"</span>, <span class="string">"XX五局"</span>, <span class="string">"XX一百零六局"</span>, <span class="string">"XX七局"</span>);</span><br><span class="line">    System.out.println(data);</span><br><span class="line">    <span class="comment">//按中文数字重新排序</span></span><br><span class="line">    data.sort((o1, o2) -&gt; {</span><br><span class="line">        <span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> o1;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str2</span> <span class="operator">=</span> o2;</span><br><span class="line">        str1 = getNumberStr(str1);</span><br><span class="line">        str2 = getNumberStr(str2);</span><br><span class="line">        <span class="keyword">return</span> (<span class="type">int</span>) (chineseNumber2Int(str1) - chineseNumber2Int(str2));</span><br><span class="line">    });</span><br><span class="line">    System.out.println(data);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</body></html>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nastyair.github.io/NastyAirBLog/2018/06/29/Java%E5%86%85%E5%AD%98%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/sunrise.png">
+      <meta itemprop="name" content="NastyAir">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NastyAirBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/06/29/Java%E5%86%85%E5%AD%98%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/" class="post-title-link" itemprop="url">Java内存知识梳理</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-29 16:12:50" itemprop="dateCreated datePublished" datetime="2018-06-29T16:12:50+08:00">2018-06-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <html><head></head><body></body></html><html><head></head><body><h1 id="内存区域"><a href="#内存区域" class="headerlink" title="内存区域"></a>内存区域</h1><img src="/2018/06/29/Java%E5%86%85%E5%AD%98%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/mem.png" class="" title="内存区域">
+<h2 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h2><table>
+<thead>
+<tr>
+<th>区域</th>
+<th>线程关系</th>
+<th>内存异常</th>
+<th>垃圾回收</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>方法区（永久代）</td>
+<td>线程共享</td>
+<td>OutOfMemoryError</td>
+<td>有</td>
+<td>存放虚拟机加载的类信息，常量（常量池），静态变量，即时编译器（JIT）编译后的代码</td>
+</tr>
+<tr>
+<td>Java堆</td>
+<td>线程共享</td>
+<td>OutOfMemoryError</td>
+<td>有</td>
+<td>存放Java对象（实例），数组</td>
+</tr>
+<tr>
+<td>虚拟机栈</td>
+<td>线程私有</td>
+<td>StackOverflowErrorOutofMemoryError</td>
+<td>无</td>
+<td>描述Java方法执行时的内存模型，栈中栈帧存储局部变量表、操作数栈、动态链接、方法返回地址等信息。</td>
+</tr>
+<tr>
+<td>本地方法栈</td>
+<td>线程私有</td>
+<td>StackOverflowErrorOutofMemoryError</td>
+<td>无</td>
+<td>描述本地方法（非Java代码编写）执行时的内存模型</td>
+</tr>
+<tr>
+<td>程序计数器</td>
+<td>线程私有</td>
+<td>无</td>
+<td>无</td>
+<td>记录Java虚拟机正在执行的虚拟机字节码指令地址</td>
+</tr>
+</tbody></table>
+<h2 id="新生代，老年代，持久代？各存了什么？"><a href="#新生代，老年代，持久代？各存了什么？" class="headerlink" title="新生代，老年代，持久代？各存了什么？"></a>新生代，老年代，持久代？各存了什么？</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>存储内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>新生代</td>
+<td>存放存活率低的对象，新创建的对象一般放新生代（Eden区），（大对象直接放老年代）</td>
+</tr>
+<tr>
+<td>老年代</td>
+<td>存放存活率较高的对象，新生代的对象经过minor</td>
+</tr>
+<tr>
+<td>持久代</td>
+<td>就是方法区</td>
+</tr>
+</tbody></table>
+<h1 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h1><h2 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h2><table>
+<thead>
+<tr>
+<th>类加载器</th>
+<th>描述</th>
+<th>是否Java实现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bootstrap</td>
+<td>JVM启动时创建，通常由操作系统相关的本地代码实现，是最根基的类加载器，负责装载的是最核心的Java类，如Object类、System类、String类等</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Extension</td>
+<td>ClassLoader（Java9 中是 Platform ClassLoader） 加载一些扩展的系统类，如XML、加密、压缩相关功能的类</td>
+<td>是</td>
+</tr>
+<tr>
+<td>Application</td>
+<td>ClassLoader</td>
+<td>加载用户定义的CLASSPATH路径下的类</td>
+</tr>
+</tbody></table>
+<h2 id="类加载器关系"><a href="#类加载器关系" class="headerlink" title="类加载器关系"></a>类加载器关系</h2><img src="/2018/06/29/Java%E5%86%85%E5%AD%98%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/class.png" class="" title="类加载器关系">
+
+<h2 id="双亲委派机制"><a href="#双亲委派机制" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h2><h3 id="好处？调用哪些方法"><a href="#好处？调用哪些方法" class="headerlink" title="好处？调用哪些方法?"></a>好处？调用哪些方法?</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>一个类加载器收到类加载请求时，自己先不加载这个类，而是委派给父类加载器去加载，只有当父类加载器无法加载时，子类才会加载类加载机制</p>
+<h4 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h4><p>类加载更加安全，避免加载和标准 Java 类同包同名的类破坏虚拟机。<br>比如Object类，无论哪个类加载器加载，最终都是交给启动类加载器来加载，所有类加载器环境下的Object类都是同一个类</p>
+<h4 id="调用方法过程"><a href="#调用方法过程" class="headerlink" title="调用方法过程"></a>调用方法过程</h4><p>调用方法过程（ClassLoader的loadClass（）方法）<br>调用findLoadClass()方法查看类是否已经加载过了<br>没加载过则看父类加载器是否为空，不为空则调用父类的loadClass（）方法进行加载，为空调用findBootstrapClassOrNull()方法，把启动类加载器当做父类加载器进行类加载<br>当父类加载器无法加载时调用本身的findClass（）方法进行类加载</p>
+<h2 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h2><img src="/2018/06/29/Java%E5%86%85%E5%AD%98%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/loading.png" class="" title="类加载的过程">
+
+<p>类加载是将字节码文件实例化成 Class 对象并进行相关初始化的过程。类加载包括类的加载（Load）、类的链接（Link）、类的初始化（init）三个步骤。</p>
+<h3 id="类的加载"><a href="#类的加载" class="headerlink" title="类的加载"></a>类的加载</h3><p>将编译后的.class文件以二进制流的方式加载到JVM内存中，并转化为特定的数据结构，用到的就是classLoad二类加载器。这个过程中校验cafe babe魔法数、常量池、文件长度、是否有父类等。</p>
+<h3 id="类的链接"><a href="#类的链接" class="headerlink" title="类的链接"></a>类的链接</h3><p>分为验证、准备、解析三个阶段</p>
+<h4 id="验证："><a href="#验证：" class="headerlink" title="验证："></a>验证：</h4><p>更为详细的验证，比如：final是否规范（二次赋值不规范）、static是否合理（静态方法必须引用静态变量）、类型是否正确。</p>
+<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p>静态变量分配内存并设定默认值（静态变量不赋值是有个默认值得），这个过程没有对象实例化。</p>
+<h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><p>把类中的符号引用转化为直接引用，完成内存结构布局。（符号引用转化为直接引用：例如：test1() { test2(); }，这里test1调用test2方法就是符号引用，但实际test2()通过一个指针指向test2方法的内存地址，这个指针负责调用，它就是直接引用）。</p>
+<h3 id="类的初始化"><a href="#类的初始化" class="headerlink" title="类的初始化"></a>类的初始化</h3><p>执行类构造器<clinit>，执行静态代码块，为静态变量赋予正确的初始值，递归初始化父类，不执行构造函数。（先执行静态代码块，再执行静态变量）。<br>任何小写的class定义的类都有一个魔法属性：class，<br>类的初始化并不是初始化对象，而是根据代码中的值初始化类的静态变量值，类的静态变量的初始化方式也有直接在声明时指定值和在静态代码块中指定值两种方式。</clinit></p>
+</body></html>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nastyair.github.io/NastyAirBLog/2018/01/03/MySQL%E4%BC%98%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/sunrise.png">
+      <meta itemprop="name" content="NastyAir">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NastyAirBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/03/MySQL%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">MySQL优化</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-01-03 17:02:42" itemprop="dateCreated datePublished" datetime="2018-01-03T17:02:42+08:00">2018-01-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BC%98%E5%8C%96%E7%9B%B8%E5%85%B3/" itemprop="url" rel="index">
+                    <span itemprop="name">优化相关</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <html><head></head><body></body></html><html><head></head><body><img src="/2018/01/03/MySQL%E4%BC%98%E5%8C%96/mysql.jpg" class="" title="MySQL优化">
+</body></html>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="NastyAir"
+    src="/img/sunrise.png">
+  <p class="site-author-name" itemprop="name">NastyAir</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/NastyAir" title="GitHub &rarr; https:&#x2F;&#x2F;github.com&#x2F;NastyAir" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:quanweilong1994@qq.com" title="E-Mail &rarr; mailto:quanweilong1994@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NastyAir</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v7.3.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

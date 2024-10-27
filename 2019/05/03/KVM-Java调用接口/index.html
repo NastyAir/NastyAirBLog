@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Connect 建立连接示例1Connect connect &#x3D; new Connect(&quot;qemu+tcp:&#x2F;&#x2F;192.168.10.105:16509&#x2F;system&quot; ); 方法说明Connect(String uri)  此方法建立的连接支持读写。 Connect(String uri, boolean readOnly)    此方法建立的连接可设置是否只读。 Connect(String">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KVM Java调用接口">
+<meta property="og:url" content="https://nastyair.github.io/NastyAirBLog/2019/05/03/KVM-Java%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/index.html">
+<meta property="og:site_name" content="NastyAirBlog">
+<meta property="og:description" content="Connect 建立连接示例1Connect connect &#x3D; new Connect(&quot;qemu+tcp:&#x2F;&#x2F;192.168.10.105:16509&#x2F;system&quot; ); 方法说明Connect(String uri)  此方法建立的连接支持读写。 Connect(String uri, boolean readOnly)    此方法建立的连接可设置是否只读。 Connect(String">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-05-03T07:30:05.000Z">
+<meta property="article:modified_time" content="2019-05-03T07:30:05.000Z">
+<meta property="article:author" content="NastyAir">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="KVM">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://nastyair.github.io/NastyAirBLog/2019/05/03/KVM-Java%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>KVM Java调用接口 | NastyAirBlog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9404ae6db783e2d3cb19adae6d4f4c93";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NastyAirBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">凡是过往，皆为序章</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-index"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nastyair.github.io/NastyAirBLog/2019/05/03/KVM-Java%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/sunrise.png">
+      <meta itemprop="name" content="NastyAir">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NastyAirBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          KVM Java调用接口
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-03 15:30:05" itemprop="dateCreated datePublished" datetime="2019-05-03T15:30:05+08:00">2019-05-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/KVM/" itemprop="url" rel="index">
+                    <span itemprop="name">KVM</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <html><head></head><body></body></html><html><head></head><body><h1 id="Connect-建立连接"><a href="#Connect-建立连接" class="headerlink" title="Connect 建立连接"></a>Connect 建立连接</h1><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Connect</span> <span class="variable">connect</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Connect</span>(<span class="string">"qemu+tcp://192.168.10.105:16509/system"</span> );</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="方法说明"><a href="#方法说明" class="headerlink" title="方法说明"></a>方法说明</h2><pre><code>Connect(String uri)
+</code></pre>
+<p>此方法建立的连接支持读写。</p>
+<pre><code>Connect(String uri, boolean readOnly)  
+</code></pre>
+<p>此方法建立的连接可设置是否只读。</p>
+<pre><code>Connect(String uri, ConnectAuth auth, int flags)
+</code></pre>
+<p>此方法建立的连接可传入一个安全验证对象      </p>
+<h2 id="传入URL格式"><a href="#传入URL格式" class="headerlink" title="传入URL格式"></a>传入URL格式</h2><pre><code>driver[+transport]://[username@][hostname][:port]/[path][?extraparameters]
+    driver 表示虚拟化引擎如 qemu、xen、test 等。
+    transport 表示传输协议如 tcp 等。
+    hostname 表示要连接的远程宿主机的 IP 地址，示例代码为：192.168.10.105。
+    port 表示要连接的远程宿主机的端口。
+    path 表示资源范围，有两个值：system 和 session，其中 system 表示所有虚拟化资源，session 表示当前用户的虚拟化资源，通常使用 system。
+    extraparameters 表示使用特定传输协议的额外参数。
+</code></pre>
+<h1 id="StoragePool-相关方法"><a href="#StoragePool-相关方法" class="headerlink" title="StoragePool 相关方法"></a>StoragePool 相关方法</h1><h2 id="遍历StoragePool"><a href="#遍历StoragePool" class="headerlink" title="遍历StoragePool"></a>遍历StoragePool</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] pools = connect.listStoragePools();</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="查询StoragePool"><a href="#查询StoragePool" class="headerlink" title="查询StoragePool"></a>查询StoragePool</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StoragePool</span> <span class="variable">storagePool</span> <span class="operator">=</span> connect.storagePoolLookupByName(<span class="string">"default"</span>);</span><br><span class="line"><span class="type">StoragePoolInfo</span> <span class="variable">storagePoolInfo</span> <span class="operator">=</span> storagePool.getInfo();</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="方法说明-1"><a href="#方法说明-1" class="headerlink" title="方法说明"></a>方法说明</h3><pre><code>StoragePool storagePoolLookupByName(String name)
+</code></pre>
+<p>通过唯一的名称获取 storage pool。</p>
+<pre><code>StoragePool storagePoolLookupByUUID(UUID uuid)
+</code></pre>
+<p>通过全局唯一的 id 获取 storage pool。</p>
+<pre><code>StoragePool storagePoolLookupByUUIDString(String UUID)
+</code></pre>
+<p>通过全局唯一的 id 获取 storage pool。</p>
+<h2 id="创建StoragePool"><a href="#创建StoragePool" class="headerlink" title="创建StoragePool"></a>创建StoragePool</h2><h3 id="StoragePool-配置描述-xml："><a href="#StoragePool-配置描述-xml：" class="headerlink" title="StoragePool 配置描述 xml："></a>StoragePool 配置描述 xml：</h3><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">pool</span> <span class="attr">type</span>=<span class="string">"dir"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>virtimages<span class="tag">&lt;/<span class="name">name</span>&gt;</span> <span class="comment">&lt;!--名称必须唯一--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">capacity</span> <span class="attr">unit</span>=<span class="string">'GiB'</span>&gt;</span>40<span class="tag">&lt;/<span class="name">capacity</span>&gt;</span> <span class="comment">&lt;!--StoragePool 的容量--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">allocation</span>&gt;</span>0<span class="tag">&lt;/<span class="name">allocation</span>&gt;</span> <span class="comment">&lt;!--StoragePool 的已用容量--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">target</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">path</span>&gt;</span>/home/kyyee/images<span class="tag">&lt;/<span class="name">path</span>&gt;</span> <span class="comment">&lt;!--StoragePool 在宿主机的路径--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">permissions</span>&gt;</span> <span class="comment">&lt;!--权限--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mode</span>&gt;</span>0711<span class="tag">&lt;/<span class="name">mode</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">owner</span>&gt;</span>0<span class="tag">&lt;/<span class="name">owner</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">group</span>&gt;</span>0<span class="tag">&lt;/<span class="name">group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">permissions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">pool</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StoragePool</span> <span class="variable">storagePool</span> <span class="operator">=</span> kvmConn.storagePoolCreateXML(xmlDesc, <span class="number">0</span>);</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="定义StoragePool"><a href="#定义StoragePool" class="headerlink" title="定义StoragePool"></a>定义StoragePool</h2><h3 id="定义临时StoragePool"><a href="#定义临时StoragePool" class="headerlink" title="定义临时StoragePool"></a>定义临时StoragePool</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StoragePool <span class="title function_">storagePoolCreateXML</span><span class="params">(String xmlDesc, <span class="type">int</span> flags)</span> </span><br></pre></td></tr></tbody></table></figure>
+<p> 顾名思义storagePoolCreateXML 创建的是一个临时的 StoragePool ，重启宿主机就会消失，删除调用 destroy()。</p>
+<h3 id="定义持久化StoragePool"><a href="#定义持久化StoragePool" class="headerlink" title="定义持久化StoragePool"></a>定义持久化StoragePool</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StoragePool <span class="title function_">storagePoolDefineXML</span><span class="params">(String xml, <span class="type">int</span> flags)</span> </span><br></pre></td></tr></tbody></table></figure>
+<p>storagePoolDefineXML 定义的是一个持久化的 StoragePool ，它一直存在,除非明确调用 undefine()方法。</p>
+<h2 id="删除StoragePool"><a href="#删除StoragePool" class="headerlink" title="删除StoragePool"></a>删除StoragePool</h2><p>删除临时StoragePool</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">storagePool.destroy();</span><br></pre></td></tr></tbody></table></figure>
+<p>删除持久化的StoragePool</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">storagePool.undefine();</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="StorageVolume相关方法"><a href="#StorageVolume相关方法" class="headerlink" title="StorageVolume相关方法"></a>StorageVolume相关方法</h1><h2 id="遍历StorageVolume"><a href="#遍历StorageVolume" class="headerlink" title="遍历StorageVolume"></a>遍历StorageVolume</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String[] volumes = storagePool.listVolumes();</span><br><span class="line">logger.info(<span class="string">"存储卷个数：{}"</span>, volumes.length);</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="查询StorageVolume"><a href="#查询StorageVolume" class="headerlink" title="查询StorageVolume"></a>查询StorageVolume</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StorageVol</span> <span class="variable">storageVol</span> <span class="operator">=</span> storagePool.storageVolLookupByName(volume);</span><br><span class="line"><span class="type">StorageVolInfo</span> <span class="variable">storageVolInfo</span> <span class="operator">=</span> storageVol.getInfo();</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="创建StorageVolume"><a href="#创建StorageVolume" class="headerlink" title="创建StorageVolume"></a>创建StorageVolume</h2><h3 id="示例-StorageVol-配置描述-xml"><a href="#示例-StorageVol-配置描述-xml" class="headerlink" title="示例 StorageVol 配置描述 xml"></a>示例 StorageVol 配置描述 xml</h3><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">volume</span> <span class="attr">type</span>=<span class="string">'file'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>kvmdemo.qcow2<span class="tag">&lt;/<span class="name">name</span>&gt;</span> <span class="comment">&lt;!--名称必须唯一--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">capacity</span> <span class="attr">unit</span>=<span class="string">'GiB'</span>&gt;</span>10<span class="tag">&lt;/<span class="name">capacity</span>&gt;</span> <span class="comment">&lt;!--StorageVol 的容量--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">allocation</span>&gt;</span>0<span class="tag">&lt;/<span class="name">allocation</span>&gt;</span> <span class="comment">&lt;!--StorageVol 的已用容量--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">target</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">path</span>&gt;</span>/var/lib/libvirt/images/kvmdemo.qcow2<span class="tag">&lt;/<span class="name">path</span>&gt;</span> <span class="comment">&lt;!--StorageVol 在宿主机的路径--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">format</span> <span class="attr">type</span>=<span class="string">'qcow2'</span>/&gt;</span> <span class="comment">&lt;!--文件类型，通常都是 qcow2，也可以是 raw--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">permissions</span>&gt;</span> <span class="comment">&lt;!--权限--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mode</span>&gt;</span>0600<span class="tag">&lt;/<span class="name">mode</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">owner</span>&gt;</span>0<span class="tag">&lt;/<span class="name">owner</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">group</span>&gt;</span>0<span class="tag">&lt;/<span class="name">group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">permissions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">volume</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StorageVol</span> <span class="variable">storageVol</span> <span class="operator">=</span> storagePool.storageVolCreateXML(xmlDesc, <span class="number">0</span>);</span><br><span class="line"><span class="type">StorageVolInfo</span> <span class="variable">storageVolInfo</span> <span class="operator">=</span> storageVol.getInfo();</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="方法说明-2"><a href="#方法说明-2" class="headerlink" title="方法说明"></a>方法说明</h3><pre><code> StorageVol storageVolCreateXML(String xmlDesc, int flags)
+</code></pre>
+<p> storageVolCreateXML创建一个全新的镜像，如果虚拟机基于这个镜像文件创建，那么还需要挂载光盘驱动器安装操作系统才能使用虚拟机</p>
+<h2 id="克隆StorageVolume"><a href="#克隆StorageVolume" class="headerlink" title="克隆StorageVolume"></a>克隆StorageVolume</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//被克隆镜像</span></span><br><span class="line"><span class="type">StorageVol</span> <span class="variable">genericVol</span> <span class="operator">=</span> storagePool.storageVolLookupByName(<span class="string">"generic.qcow2"</span>);</span><br><span class="line"><span class="type">StorageVol</span> <span class="variable">storageVol</span> <span class="operator">=</span> storagePool.storageVolCreateXMLFrom(xmlDesc, genericVol, <span class="number">0</span>);</span><br></pre></td></tr></tbody></table></figure>
+<p>storageVolCreateXMLFrom 基于传入的 cloneVolume 克隆一个镜像，需保证克隆的镜像的名称和路径唯一，否则将克隆失败。</p>
+<h2 id="删除StorageVolume"><a href="#删除StorageVolume" class="headerlink" title="删除StorageVolume"></a>删除StorageVolume</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">storageVol.wipe();</span><br><span class="line">storageVol.delete(<span class="number">0</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="管理虚拟机生命周期"><a href="#管理虚拟机生命周期" class="headerlink" title="管理虚拟机生命周期"></a>管理虚拟机生命周期</h1><h2 id="遍历宿主机上的客户机（虚拟机）"><a href="#遍历宿主机上的客户机（虚拟机）" class="headerlink" title="遍历宿主机上的客户机（虚拟机）"></a>遍历宿主机上的客户机（虚拟机）</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] idsOfDomain = connect.listDomains();</span><br><span class="line">logger.info(<span class="string">"正在运行的虚拟机个数：{}"</span>, idsOfDomain.length);</span><br><span class="line"></span><br><span class="line">String[] namesOfDefinedDomain = connect.listDefinedDomains();</span><br><span class="line">logger.info(<span class="string">"已定义未运行的虚拟机个数：{}"</span>, namesOfDefinedDomain.length);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="查询客户机（虚拟机）"><a href="#查询客户机（虚拟机）" class="headerlink" title="查询客户机（虚拟机）"></a>查询客户机（虚拟机）</h2><pre><code>Domain domainLookupByID(int id)
+通过唯一的 id 获取客户机（虚拟机）。
+Domain domainLookupByName(String name)
+通过唯一的名称获取客户机（虚拟机）。
+Domain domainLookupByUUID(int[] UUID)
+通过唯一的 UUID 获取客户机（虚拟机）。
+Domain domainLookupByUUID(UUID uuid)
+通过唯一的 UUID 获取客户机（虚拟机）。
+Domain domainLookupByUUIDString(String UUID)
+通过唯一的 UUID 获取客户机（虚拟机）。
+</code></pre>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> id : idsOfDomain) {</span><br><span class="line"><span class="type">Domain</span> <span class="variable">domain</span> <span class="operator">=</span> connect.domainLookupByID(id);</span><br><span class="line">logger.info(<span class="string">"虚拟机的id：{}"</span>, domain.getID());</span><br><span class="line">logger.info(<span class="string">"虚拟机的uuid：{}"</span>, domain.getUUIDString());</span><br><span class="line">logger.info(<span class="string">"虚拟机的名称：{}"</span>, domain.getName());</span><br><span class="line">logger.info(<span class="string">"虚拟机的是否自动启动：{}"</span>, domain.getAutostart());</span><br><span class="line">logger.info(<span class="string">"虚拟机的状态：{}"</span>, domain.getInfo().state);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="创建客户机（虚拟机）"><a href="#创建客户机（虚拟机）" class="headerlink" title="创建客户机（虚拟机）"></a>创建客户机（虚拟机）</h2><h3 id="示例客户机（虚拟机）配置描述-xml"><a href="#示例客户机（虚拟机）配置描述-xml" class="headerlink" title="示例客户机（虚拟机）配置描述 xml"></a>示例客户机（虚拟机）配置描述 xml</h3><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">domain</span> <span class="attr">type</span>=<span class="string">'kvm'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">name</span>&gt;</span>kvmdemo<span class="tag">&lt;/<span class="name">name</span>&gt;</span> <span class="comment">&lt;!--名称必须唯一--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">uuid</span>&gt;</span>c6e408f3-7750-47ca-8bd1-d19837271472<span class="tag">&lt;/<span class="name">uuid</span>&gt;</span> <span class="comment">&lt;!--uuid必须唯一，可使用 java.util.UUID 随机生成--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">memory</span> <span class="attr">unit</span>=<span class="string">'MiB'</span>&gt;</span>512<span class="tag">&lt;/<span class="name">memory</span>&gt;</span> <span class="comment">&lt;!--最大可用内存配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">currentMemory</span> <span class="attr">unit</span>=<span class="string">'MiB'</span>&gt;</span>512<span class="tag">&lt;/<span class="name">currentMemory</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">vcpu</span> <span class="attr">placement</span>=<span class="string">'static'</span>&gt;</span>1<span class="tag">&lt;/<span class="name">vcpu</span>&gt;</span> <span class="comment">&lt;!--配置cpu--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">os</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">type</span> <span class="attr">arch</span>=<span class="string">'x86_64'</span> <span class="attr">machine</span>=<span class="string">'pc'</span>&gt;</span>hvm<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">boot</span> <span class="attr">dev</span>=<span class="string">'hd'</span>/&gt;</span> <span class="comment">&lt;!--硬盘启动--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">boot</span> <span class="attr">dev</span>=<span class="string">'cdrom'</span>/&gt;</span> <span class="comment">&lt;!--光驱启动--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">os</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">features</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">acpi</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">apic</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">pae</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">features</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">clock</span> <span class="attr">offset</span>=<span class="string">'localtime'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">on_poweroff</span>&gt;</span>destroy<span class="tag">&lt;/<span class="name">on_poweroff</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">on_reboot</span>&gt;</span>restart<span class="tag">&lt;/<span class="name">on_reboot</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">on_crash</span>&gt;</span>restart<span class="tag">&lt;/<span class="name">on_crash</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">devices</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">emulator</span>&gt;</span>/usr/bin/qemu-system-x86_64<span class="tag">&lt;/<span class="name">emulator</span>&gt;</span> <span class="comment">&lt;!--模拟器所在路径，视自己情况配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">disk</span> <span class="attr">type</span>=<span class="string">'file'</span> <span class="attr">device</span>=<span class="string">'disk'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">driver</span> <span class="attr">name</span>=<span class="string">'qemu'</span> <span class="attr">type</span>=<span class="string">'qcow2'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">file</span>=<span class="string">'/var/lib/libvirt/images/kvmdemo.qcow2'</span>/&gt;</span> <span class="comment">&lt;!--虚拟硬盘配置，这个地方填生成的镜像文件所在的路径即可--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">target</span> <span class="attr">dev</span>=<span class="string">'hda'</span> <span class="attr">bus</span>=<span class="string">'ide'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">disk</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;disk type='file' device='cdrom'&gt;</span></span><br><span class="line"><span class="comment">&lt;source file='/var/lib/libvirt/images/ubuntu-16.04-desktop-amd64.iso'/&gt;</span></span><br><span class="line"><span class="comment">&lt;target dev='hdb' bus='ide'/&gt;</span></span><br><span class="line"><span class="comment">&lt;readonly/&gt;</span></span><br><span class="line"><span class="comment">&lt;/disk&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">interface</span> <span class="attr">type</span>=<span class="string">'bridge'</span>&gt;</span> <span class="comment">&lt;!--网络配置，本示例配置成桥接模式--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mac</span> <span class="attr">address</span>=<span class="string">'52:54:00:f4:06:03'</span>/&gt;</span> <span class="comment">&lt;!--mac 地址必须唯一--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">bridge</span>=<span class="string">'br0'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">interface</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">console</span> <span class="attr">type</span>=<span class="string">'pty'</span>&gt;</span> <span class="comment">&lt;!--控制台配置，如果需要使用 virsh 命令登陆虚拟机，则必须添加--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">target</span> <span class="attr">port</span>=<span class="string">'0'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">console</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'tablet'</span> <span class="attr">bus</span>=<span class="string">'usb'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'mouse'</span> <span class="attr">bus</span>=<span class="string">'ps2'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'keyboard'</span> <span class="attr">bus</span>=<span class="string">'ps2'</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">graphics</span> <span class="attr">type</span>=<span class="string">'vnc'</span> <span class="attr">autoport</span>=<span class="string">'yes'</span> <span class="attr">keymap</span>=<span class="string">'en-us'</span></span></span><br><span class="line"><span class="tag"><span class="attr">listen</span>=<span class="string">'0.0.0.0'</span>/&gt;</span> <span class="comment">&lt;!--VNC配置，autoport="yes"表示自动分配VNC端口，推荐使用，listen="0.0.0.0"表示监听所有IP--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">memballoon</span> <span class="attr">model</span>=<span class="string">"virtio"</span>&gt;</span> <span class="comment">&lt;!--内存监控配置，添加此配置，才能正常取得内存使用情况--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">stats</span> <span class="attr">period</span>=<span class="string">"10"</span>/&gt;</span><span class="comment">&lt;!--每10s钟收集一次--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">memballoon</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">devices</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">domain</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Domain</span> <span class="variable">domain</span> <span class="operator">=</span> connect.domainCreateXML(xmlDesc, <span class="number">0</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="定义客户机（虚拟机）"><a href="#定义客户机（虚拟机）" class="headerlink" title="定义客户机（虚拟机）"></a>定义客户机（虚拟机）</h2><h3 id="定义临时虚拟机"><a href="#定义临时虚拟机" class="headerlink" title="定义临时虚拟机"></a>定义临时虚拟机</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Domain</span> <span class="variable">domain</span> <span class="operator">=</span> connect.domainDefineXML(xmlDesc);</span><br></pre></td></tr></tbody></table></figure>
+<p>Domain domainDefineXML(String xmlDesc)创建的客户机（虚拟机）是一个临时的，当调用 destroy() 或者宿主机重启后，就会消失</p>
+<h3 id="定义持久化虚拟机"><a href="#定义持久化虚拟机" class="headerlink" title="定义持久化虚拟机"></a>定义持久化虚拟机</h3><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Domain</span> <span class="variable">domain</span> <span class="operator">=</span> connect.domainDefineXML(xmlDesc);</span><br></pre></td></tr></tbody></table></figure>
+<p>Domain domainCreateXML(String xmlDesc, int flags)定义的是一个持久化的客户机（虚拟机），除非明确调用 undefine()，否则它一直存在，此外，domainDefineXML 会覆盖之前的定义，但是有些操作会阻止这个操作，比如 block copy 操作，要先使用 abortJob() 操作取消这些块拷贝操作。</p>
+<ol start="5">
+<li>   删除客户机（虚拟机）<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">domain.destroy(); <span class="comment">// 强制关机</span></span><br><span class="line">domain.undefine();</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+</body></html>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/KVM/" rel="tag"># KVM</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="next" title="KVM安装及WIN下Java环境搭建">
+                  <i class="fa fa-chevron-left"></i> KVM安装及WIN下Java环境搭建
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/08/06/AMD-Radeon-%E6%98%BE%E5%8D%A1%E8%AE%BE%E7%BD%AE%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%EF%BC%88%E9%97%AA%E9%80%80%EF%BC%89/" rel="prev" title="AMD Radeon 显卡设置无法打开（闪退）">
+                  AMD Radeon 显卡设置无法打开（闪退） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Connect-%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.</span> <span class="nav-text">Connect 建立连接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.1.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E8%AF%B4%E6%98%8E"><span class="nav-number">1.2.</span> <span class="nav-text">方法说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E5%85%A5URL%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">传入URL格式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#StoragePool-%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">StoragePool 相关方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8D%E5%8E%86StoragePool"><span class="nav-number">2.1.</span> <span class="nav-text">遍历StoragePool</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2StoragePool"><span class="nav-number">2.2.</span> <span class="nav-text">查询StoragePool</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E8%AF%B4%E6%98%8E-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">方法说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAStoragePool"><span class="nav-number">2.3.</span> <span class="nav-text">创建StoragePool</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#StoragePool-%E9%85%8D%E7%BD%AE%E6%8F%8F%E8%BF%B0-xml%EF%BC%9A"><span class="nav-number">2.3.1.</span> <span class="nav-text">StoragePool 配置描述 xml：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89StoragePool"><span class="nav-number">2.4.</span> <span class="nav-text">定义StoragePool</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%B4%E6%97%B6StoragePool"><span class="nav-number">2.4.1.</span> <span class="nav-text">定义临时StoragePool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E6%8C%81%E4%B9%85%E5%8C%96StoragePool"><span class="nav-number">2.4.2.</span> <span class="nav-text">定义持久化StoragePool</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4StoragePool"><span class="nav-number">2.5.</span> <span class="nav-text">删除StoragePool</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#StorageVolume%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">StorageVolume相关方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8D%E5%8E%86StorageVolume"><span class="nav-number">3.1.</span> <span class="nav-text">遍历StorageVolume</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2StorageVolume"><span class="nav-number">3.2.</span> <span class="nav-text">查询StorageVolume</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAStorageVolume"><span class="nav-number">3.3.</span> <span class="nav-text">创建StorageVolume</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-StorageVol-%E9%85%8D%E7%BD%AE%E6%8F%8F%E8%BF%B0-xml"><span class="nav-number">3.3.1.</span> <span class="nav-text">示例 StorageVol 配置描述 xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E8%AF%B4%E6%98%8E-2"><span class="nav-number">3.3.2.</span> <span class="nav-text">方法说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%8B%E9%9A%86StorageVolume"><span class="nav-number">3.4.</span> <span class="nav-text">克隆StorageVolume</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4StorageVolume"><span class="nav-number">3.5.</span> <span class="nav-text">删除StorageVolume</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">4.</span> <span class="nav-text">管理虚拟机生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E4%B8%8A%E7%9A%84%E5%AE%A2%E6%88%B7%E6%9C%BA%EF%BC%88%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">遍历宿主机上的客户机（虚拟机）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%AE%A2%E6%88%B7%E6%9C%BA%EF%BC%88%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">查询客户机（虚拟机）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%A2%E6%88%B7%E6%9C%BA%EF%BC%88%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%89"><span class="nav-number">4.3.</span> <span class="nav-text">创建客户机（虚拟机）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%E5%AE%A2%E6%88%B7%E6%9C%BA%EF%BC%88%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%89%E9%85%8D%E7%BD%AE%E6%8F%8F%E8%BF%B0-xml"><span class="nav-number">4.3.1.</span> <span class="nav-text">示例客户机（虚拟机）配置描述 xml</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%AE%A2%E6%88%B7%E6%9C%BA%EF%BC%88%E8%99%9A%E6%8B%9F%E6%9C%BA%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">定义客户机（虚拟机）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%B4%E6%97%B6%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">4.4.1.</span> <span class="nav-text">定义临时虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E6%8C%81%E4%B9%85%E5%8C%96%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">4.4.2.</span> <span class="nav-text">定义持久化虚拟机</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="NastyAir"
+    src="/img/sunrise.png">
+  <p class="site-author-name" itemprop="name">NastyAir</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/NastyAir" title="GitHub &rarr; https:&#x2F;&#x2F;github.com&#x2F;NastyAir" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:quanweilong1994@qq.com" title="E-Mail &rarr; mailto:quanweilong1994@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NastyAir</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v7.3.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

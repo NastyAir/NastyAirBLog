@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="准备环境宿主机环境准备系统安装——CentOS7安装 虚拟机安装使用镜像CentOS-7-x86_64-Minimal-1810.iso特别注意：请务必开启CPU虚拟化   实体机安装特别注意：请务必在bios中开启CPU虚拟化 KVM及其相关依赖安装配置网络装好CentOS7后，默认网卡是未启动的，需要修改网卡配置执行如下命令获取 1ip a  修改对应的网络配置文件 1vi &#x2F;etc&#x2F;sysc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KVM安装及WIN下Java环境搭建">
+<meta property="og:url" content="https://nastyair.github.io/NastyAirBLog/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="NastyAirBlog">
+<meta property="og:description" content="准备环境宿主机环境准备系统安装——CentOS7安装 虚拟机安装使用镜像CentOS-7-x86_64-Minimal-1810.iso特别注意：请务必开启CPU虚拟化   实体机安装特别注意：请务必在bios中开启CPU虚拟化 KVM及其相关依赖安装配置网络装好CentOS7后，默认网卡是未启动的，需要修改网卡配置执行如下命令获取 1ip a  修改对应的网络配置文件 1vi &#x2F;etc&#x2F;sysc">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://nastyair.github.io/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/20190830150623454.png">
+<meta property="og:image" content="https://nastyair.github.io/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/20190830150635551.png">
+<meta property="og:image" content="https://nastyair.github.io/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/20190830150642362.png">
+<meta property="og:image" content="https://nastyair.github.io/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/20190830150656390.png">
+<meta property="article:published_time" content="2019-04-30T07:31:50.000Z">
+<meta property="article:modified_time" content="2019-04-30T07:31:50.000Z">
+<meta property="article:author" content="NastyAir">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="KVM">
+<meta property="article:tag" content="CentOS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nastyair.github.io/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/20190830150623454.png">
+
+<link rel="canonical" href="https://nastyair.github.io/NastyAirBLog/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>KVM安装及WIN下Java环境搭建 | NastyAirBlog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9404ae6db783e2d3cb19adae6d4f4c93";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NastyAirBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">凡是过往，皆为序章</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-index"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nastyair.github.io/NastyAirBLog/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/sunrise.png">
+      <meta itemprop="name" content="NastyAir">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NastyAirBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          KVM安装及WIN下Java环境搭建
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-04-30 15:31:50" itemprop="dateCreated datePublished" datetime="2019-04-30T15:31:50+08:00">2019-04-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/KVM/" itemprop="url" rel="index">
+                    <span itemprop="name">KVM</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <html><head></head><body></body></html><html><head></head><body><h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><h2 id="宿主机环境准备"><a href="#宿主机环境准备" class="headerlink" title="宿主机环境准备"></a>宿主机环境准备</h2><p>系统安装——CentOS7安装</p>
+<h2 id="虚拟机安装"><a href="#虚拟机安装" class="headerlink" title="虚拟机安装"></a>虚拟机安装</h2><p>使用镜像CentOS-7-x86_64-Minimal-1810.iso<br><font color="red">特别注意：请务必开启CPU虚拟化</font></p>
+<img src="/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/20190830150623454.png" class="" title="VM开启虚拟化">
+<!-- ![](/20190830150623454.png) -->
+<h2 id="实体机安装"><a href="#实体机安装" class="headerlink" title="实体机安装"></a>实体机安装</h2><p><font color="red">特别注意：请务必在bios中开启CPU虚拟化</font></p>
+<h1 id="KVM及其相关依赖安装"><a href="#KVM及其相关依赖安装" class="headerlink" title="KVM及其相关依赖安装"></a>KVM及其相关依赖安装</h1><h2 id="配置网络"><a href="#配置网络" class="headerlink" title="配置网络"></a>配置网络</h2><p>装好CentOS7后，默认网卡是未启动的，需要修改网卡配置<br>执行如下命令获取</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></tbody></table></figure>
+<img src="/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/20190830150635551.png" class="" title="VM开启虚拟化">
+<p>修改对应的网络配置文件</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></tbody></table></figure>
+<img src="/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/20190830150642362.png" class="" title="VM开启虚拟化">
+
+
+<p>将ONBOOT=no改为yes，将BOOTPROTO=dhcp改为BOOTPROTO=static,并在后面增加几行内容：<br><font color="red">以下配置需要根据实际情况调整</font></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IPADDR=192.168.127.128</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">GATEWAY=192.168.127.2</span><br><span class="line">DNS1=119.29.29.29</span><br></pre></td></tr></tbody></table></figure>
+
+
+<p>保存后退出，然后输入以下命令来重启网络服务：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network.service&nbsp;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="安装KVM"><a href="#安装KVM" class="headerlink" title="安装KVM"></a>安装KVM</h2><p>执行如下命令</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install kvm python-virtinst libvirt&nbsp; bridge-utils virt-manager qemu-kvm-tools&nbsp; virt-viewer&nbsp; virt-v2v libguestfs-tools-c</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="查看KVM版本"><a href="#查看KVM版本" class="headerlink" title="查看KVM版本"></a>查看KVM版本</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">qemu-img --<span class="built_in">help</span> | grep version</span><br><span class="line">``</span><br><span class="line">如果版本过低需要升级KVM</span><br><span class="line">``` bash</span><br><span class="line">yum –y remove qemu-kvm</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="升级KVM"><a href="#升级KVM" class="headerlink" title="升级KVM"></a>升级KVM</h2><p>下载 KVM包</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://download.qemu.org/qemu-3.1.0-rc0.tar.xz</span><br></pre></td></tr></tbody></table></figure>
+<p>如果提示未找到wget命令</p>
+<p>需要执行以下命令安装wget</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install wget -y</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ automake libtool zlib-devel glib2-devel bzip2-devel libuuid-devel spice-protocol spice-server-devel usbredir-devel libaio-devel</span><br></pre></td></tr></tbody></table></figure>
+<p>解压tar 并执行编译安装</p>
+<p>1、解压tar包</p>
+<p>进入“qemu-3.1.0-rc0.tar.xz”文件所在目录</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvJf qemu-3.1.0-rc0.tar.xz</span><br></pre></td></tr></tbody></table></figure>
+<p>2、进入解压目录执行命令：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> qemu-3.1.0-rc0</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></tbody></table></figure>
+<p>经过漫长的等待后KVM安装完成，执行命令查看KVM版本：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-img –version</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="NOVNC"><a href="#NOVNC" class="headerlink" title="NOVNC"></a>NOVNC</h1><h2 id="修改libvirt配置文件"><a href="#修改libvirt配置文件" class="headerlink" title="修改libvirt配置文件"></a>修改libvirt配置文件</h2><p>取消一下选项注释:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/libvirt/libvirtd.conf</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">listen_tls = 0</span><br><span class="line"></span><br><span class="line">listen_tcp = 1</span><br><span class="line"></span><br><span class="line">tcp_port = <span class="string">"16509"</span></span><br><span class="line"></span><br><span class="line">listen_addr = <span class="string">"0.0.0.0"</span>&nbsp; //地址必须修改为0.0.0.0</span><br><span class="line"></span><br><span class="line">auth_tcp = <span class="string">"none"</span>&nbsp;&nbsp; //如值不是none，需要手动修改。</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="修改启动文件"><a href="#修改启动文件" class="headerlink" title="修改启动文件"></a>修改启动文件</h2><p>1、进入文件编译：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/libvirtd</span><br></pre></td></tr></tbody></table></figure>
+<p>取消一下选项注释：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LIBVIRTD_ARGS=<span class="string">"--listen"</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="启动libvirt"><a href="#启动libvirt" class="headerlink" title="启动libvirt"></a>启动libvirt</h2><p>执行命令：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart libvirtd</span><br></pre></td></tr></tbody></table></figure>
+<p>注意：如果启动失败，注意检查配置文件的准确性。</p>
+<h2 id="下载-noVNC"><a href="#下载-noVNC" class="headerlink" title="下载 noVNC"></a>下载 noVNC</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> git <span class="built_in">clone</span> https://github.com/novnc/noVNC.git</span><br></pre></td></tr></tbody></table></figure>
+<p>完毕后，进入 noVNC 文件夹，执行如下命令。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ./utils/launch.sh --vnc 192.168.10.231:5900</span><br></pre></td></tr></tbody></table></figure>
+<p>然后在浏览器输入：<br><a target="_blank" rel="noopener" href="http://192.168.10.230:6080/vnc.html?host=192.168.10.230&amp;port=6080">http://192.168.10.230:6080/vnc.html?host=192.168.10.230&amp;port=6080</a></p>
+<h1 id="Java开发环境准备"><a href="#Java开发环境准备" class="headerlink" title="Java开发环境准备"></a>Java开发环境准备</h1><h2 id="安装依赖库"><a href="#安装依赖库" class="headerlink" title="安装依赖库"></a>安装依赖库</h2><p>下载安装libvirt的windows下的远程管理工具<br><a target="_blank" rel="noopener" href="https://libvirt.org/sources/win32_experimental/Libvirt-0.8.8-0.exe">https://libvirt.org/sources/win32_experimental/Libvirt-0.8.8-0.exe</a><br>安装完成之后，进入安装好的bin目录，将bin目录下的libvirt-0.dll文件的名称修改未成virt.dll</p>
+<h2 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h2><p>新建jna.library.path环境变量url为安装好的bin目录。这是为了让javaAPI找到dll文件，所以指定了jna路径。</p>
+<img src="/2019/04/30/KVM%E5%AE%89%E8%A3%85%E5%8F%8AWIN%E4%B8%8BJAVA%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/20190830150656390.png" class="" title="VM开启虚拟化">
+
+<p><font color="red">注意：添加环境变量后如若未生效，需重启IDE或者电脑。</font></p>
+<h2 id="JDK选择"><a href="#JDK选择" class="headerlink" title="JDK选择"></a>JDK选择</h2><p>因为libvirt的windows下的远程管理工具是32位的，所以JDK也必须为32位的JDK。<br>在linux环境不存在这个问题。</p>
+</body></html>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/KVM/" rel="tag"># KVM</a>
+              <a href="/tags/CentOS/" rel="tag"># CentOS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2018/12/06/%E3%80%90Java%E3%80%91-%E5%8C%85%E5%90%AB%E4%B8%AD%E6%96%87%E6%95%B0%E5%AD%97%E7%9A%84%E6%96%87%E5%AD%97%E6%8E%92%E5%BA%8F/" rel="next" title="【Java】 包含中文数字的文字排序">
+                  <i class="fa fa-chevron-left"></i> 【Java】 包含中文数字的文字排序
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/05/03/KVM-Java%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3/" rel="prev" title="KVM Java调用接口">
+                  KVM Java调用接口 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">准备环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%BF%E4%B8%BB%E6%9C%BA%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">1.1.</span> <span class="nav-text">宿主机环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">虚拟机安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BD%93%E6%9C%BA%E5%AE%89%E8%A3%85"><span class="nav-number">1.3.</span> <span class="nav-text">实体机安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#KVM%E5%8F%8A%E5%85%B6%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">KVM及其相关依赖安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C"><span class="nav-number">2.1.</span> <span class="nav-text">配置网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85KVM"><span class="nav-number">2.2.</span> <span class="nav-text">安装KVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8BKVM%E7%89%88%E6%9C%AC"><span class="nav-number">2.3.</span> <span class="nav-text">查看KVM版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7KVM"><span class="nav-number">2.4.</span> <span class="nav-text">升级KVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="nav-number">2.5.</span> <span class="nav-text">安装依赖包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NOVNC"><span class="nav-number">3.</span> <span class="nav-text">NOVNC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9libvirt%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">修改libvirt配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%90%AF%E5%8A%A8%E6%96%87%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">修改启动文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8libvirt"><span class="nav-number">3.3.</span> <span class="nav-text">启动libvirt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD-noVNC"><span class="nav-number">3.4.</span> <span class="nav-text">下载 noVNC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">4.</span> <span class="nav-text">Java开发环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%BA%93"><span class="nav-number">4.1.</span> <span class="nav-text">安装依赖库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">4.2.</span> <span class="nav-text">添加环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK%E9%80%89%E6%8B%A9"><span class="nav-number">4.3.</span> <span class="nav-text">JDK选择</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="NastyAir"
+    src="/img/sunrise.png">
+  <p class="site-author-name" itemprop="name">NastyAir</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/NastyAir" title="GitHub &rarr; https:&#x2F;&#x2F;github.com&#x2F;NastyAir" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:quanweilong1994@qq.com" title="E-Mail &rarr; mailto:quanweilong1994@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NastyAir</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v7.3.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
