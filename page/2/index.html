@@ -196,6 +196,179 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nastyair.github.io/NastyAirBLog/NastyAirBLog/2018/06/29/Java%E5%86%85%E5%AD%98%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/NastyAirBLog/img/sunrise.png">
+      <meta itemprop="name" content="NastyAir">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NastyAirBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/NastyAirBLog/2018/06/29/Java%E5%86%85%E5%AD%98%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/" class="post-title-link" itemprop="url">Java内存知识梳理</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-29 16:12:50" itemprop="dateCreated datePublished" datetime="2018-06-29T16:12:50+08:00">2018-06-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NastyAirBLog/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <html><head></head><body></body></html><html><head></head><body><h1 id="内存区域"><a href="#内存区域" class="headerlink" title="内存区域"></a>内存区域</h1><img src="/NastyAirBLog/2018/06/29/Java%E5%86%85%E5%AD%98%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/mem.png" class="" title="内存区域">
+<h2 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h2><table>
+<thead>
+<tr>
+<th>区域</th>
+<th>线程关系</th>
+<th>内存异常</th>
+<th>垃圾回收</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>方法区（永久代）</td>
+<td>线程共享</td>
+<td>OutOfMemoryError</td>
+<td>有</td>
+<td>存放虚拟机加载的类信息，常量（常量池），静态变量，即时编译器（JIT）编译后的代码</td>
+</tr>
+<tr>
+<td>Java堆</td>
+<td>线程共享</td>
+<td>OutOfMemoryError</td>
+<td>有</td>
+<td>存放Java对象（实例），数组</td>
+</tr>
+<tr>
+<td>虚拟机栈</td>
+<td>线程私有</td>
+<td>StackOverflowErrorOutofMemoryError</td>
+<td>无</td>
+<td>描述Java方法执行时的内存模型，栈中栈帧存储局部变量表、操作数栈、动态链接、方法返回地址等信息。</td>
+</tr>
+<tr>
+<td>本地方法栈</td>
+<td>线程私有</td>
+<td>StackOverflowErrorOutofMemoryError</td>
+<td>无</td>
+<td>描述本地方法（非Java代码编写）执行时的内存模型</td>
+</tr>
+<tr>
+<td>程序计数器</td>
+<td>线程私有</td>
+<td>无</td>
+<td>无</td>
+<td>记录Java虚拟机正在执行的虚拟机字节码指令地址</td>
+</tr>
+</tbody></table>
+<h2 id="新生代，老年代，持久代？各存了什么？"><a href="#新生代，老年代，持久代？各存了什么？" class="headerlink" title="新生代，老年代，持久代？各存了什么？"></a>新生代，老年代，持久代？各存了什么？</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>存储内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>新生代</td>
+<td>存放存活率低的对象，新创建的对象一般放新生代（Eden区），（大对象直接放老年代）</td>
+</tr>
+<tr>
+<td>老年代</td>
+<td>存放存活率较高的对象，新生代的对象经过minor</td>
+</tr>
+<tr>
+<td>持久代</td>
+<td>就是方法区</td>
+</tr>
+</tbody></table>
+<h1 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h1><h2 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h2><table>
+<thead>
+<tr>
+<th>类加载器</th>
+<th>描述</th>
+<th>是否Java实现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bootstrap</td>
+<td>JVM启动时创建，通常由操作系统相关的本地代码实现，是最根基的类加载器，负责装载的是最核心的Java类，如Object类、System类、String类等</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Extension</td>
+<td>ClassLoader（Java9 中是 Platform ClassLoader） 加载一些扩展的系统类，如XML、加密、压缩相关功能的类</td>
+<td>是</td>
+</tr>
+<tr>
+<td>Application</td>
+<td>ClassLoader</td>
+<td>加载用户定义的CLASSPATH路径下的类</td>
+</tr>
+</tbody></table>
+<h2 id="类加载器关系"><a href="#类加载器关系" class="headerlink" title="类加载器关系"></a>类加载器关系</h2><img src="/NastyAirBLog/2018/06/29/Java%E5%86%85%E5%AD%98%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/class.png" class="" title="类加载器关系">
+
+<h2 id="双亲委派机制"><a href="#双亲委派机制" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h2><h3 id="好处？调用哪些方法"><a href="#好处？调用哪些方法" class="headerlink" title="好处？调用哪些方法?"></a>好处？调用哪些方法?</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>一个类加载器收到类加载请求时，自己先不加载这个类，而是委派给父类加载器去加载，只有当父类加载器无法加载时，子类才会加载类加载机制</p>
+<h4 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h4><p>类加载更加安全，避免加载和标准 Java 类同包同名的类破坏虚拟机。<br>比如Object类，无论哪个类加载器加载，最终都是交给启动类加载器来加载，所有类加载器环境下的Object类都是同一个类</p>
+<h4 id="调用方法过程"><a href="#调用方法过程" class="headerlink" title="调用方法过程"></a>调用方法过程</h4><p>调用方法过程（ClassLoader的loadClass（）方法）<br>调用findLoadClass()方法查看类是否已经加载过了<br>没加载过则看父类加载器是否为空，不为空则调用父类的loadClass（）方法进行加载，为空调用findBootstrapClassOrNull()方法，把启动类加载器当做父类加载器进行类加载<br>当父类加载器无法加载时调用本身的findClass（）方法进行类加载</p>
+<h2 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h2><img src="/NastyAirBLog/2018/06/29/Java%E5%86%85%E5%AD%98%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/loading.png" class="" title="类加载的过程">
+
+<p>类加载是将字节码文件实例化成 Class 对象并进行相关初始化的过程。类加载包括类的加载（Load）、类的链接（Link）、类的初始化（init）三个步骤。</p>
+<h3 id="类的加载"><a href="#类的加载" class="headerlink" title="类的加载"></a>类的加载</h3><p>将编译后的.class文件以二进制流的方式加载到JVM内存中，并转化为特定的数据结构，用到的就是classLoad二类加载器。这个过程中校验cafe babe魔法数、常量池、文件长度、是否有父类等。</p>
+<h3 id="类的链接"><a href="#类的链接" class="headerlink" title="类的链接"></a>类的链接</h3><p>分为验证、准备、解析三个阶段</p>
+<h4 id="验证："><a href="#验证：" class="headerlink" title="验证："></a>验证：</h4><p>更为详细的验证，比如：final是否规范（二次赋值不规范）、static是否合理（静态方法必须引用静态变量）、类型是否正确。</p>
+<h4 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h4><p>静态变量分配内存并设定默认值（静态变量不赋值是有个默认值得），这个过程没有对象实例化。</p>
+<h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><p>把类中的符号引用转化为直接引用，完成内存结构布局。（符号引用转化为直接引用：例如：test1() { test2(); }，这里test1调用test2方法就是符号引用，但实际test2()通过一个指针指向test2方法的内存地址，这个指针负责调用，它就是直接引用）。</p>
+<h3 id="类的初始化"><a href="#类的初始化" class="headerlink" title="类的初始化"></a>类的初始化</h3><p>执行类构造器<clinit>，执行静态代码块，为静态变量赋予正确的初始值，递归初始化父类，不执行构造函数。（先执行静态代码块，再执行静态变量）。<br>任何小写的class定义的类都有一个魔法属性：class，<br>类的初始化并不是初始化对象，而是根据代码中的值初始化类的静态变量值，类的静态变量的初始化方式也有直接在声明时指定值和在静态代码块中指定值两种方式。</clinit></p>
+</body></html>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://nastyair.github.io/NastyAirBLog/NastyAirBLog/2018/01/03/MySQL%E4%BC%98%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -748,7 +921,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/NastyAirBLog/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -761,7 +934,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/NastyAirBLog/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -794,7 +967,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
